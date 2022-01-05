@@ -1,0 +1,40 @@
+{
+	"info": {
+		"_postman_id": "3751dcfa-5771-4ac4-b8cc-ab9b477025e6",
+		"name": "createUserToLDAP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://127.0.0.1:5000/createuser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstname\":\"Naiyarut\",\r\n    \"lastname\":\"Areeprayoonkij\",\r\n    \"fullname\":\"Naiyarut Areeprayoonkij\",\r\n    \"description\":\"นัยรัตน์ อารีประยูรกิจ\",\r\n    \"officename\":\"ICTC\",\r\n    \"tel\":\"0892893000\",\r\n    \"mail\":\"naiyarut@hotmail.com\",\r\n    \"homepage\":\"119000290390023\",\r\n    \"userlogon\":\"naiyaruta\",\r\n    \"userpwd\":\"Na@1234567.\",\r\n    \"subOU\":\"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/createuser",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"createuser"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

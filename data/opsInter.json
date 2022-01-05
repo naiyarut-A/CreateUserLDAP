@@ -1,0 +1,38 @@
+{
+    "data":[
+        [
+            {
+                "dn" : "OU=OPS-Inter",
+                "name" : "OPS-Inter"
+            }
+        ],
+        [
+            "_comment: Start point of Beijing OU",
+            {
+                "dn" : "OU=Beijing,OU=OPS-Inter",
+                "name" : "Beijing"
+            },
+            {
+                "dn" : "OU=Reg1,OU=Beijing,OU=OPS-Inter",
+                "name" : "Reg1"
+            },
+            {
+                "dn" : "OU=Reg2,OU=Beijing,OU=OPS-Inter",
+                "name" : "Reg2"
+            }
+        ], 
+        [
+            "_comment: Start point of London OU",
+            {
+                "dn" : "OU=London,OU=OPS-Inter",
+                "name" : "London"
+            },
+            {
+                "dn" : "OU=Reg1,OU=London,OU=OPS-Inter",
+                "name" : "Reg1"
+            }
+        ]
+    ]
+    
+}
+

@@ -1,0 +1,18 @@
+{
+    "data":[
+        [
+            {
+                "dn" : "OU=OPS",
+                "name" : "OPS"
+            }
+        ],
+        [
+            "_comment: Start point of ICTC OU",
+            {
+                "dn" : "OU=ICTC,OU=OPS",
+                "name" : "ICTC"
+            }
+        ]
+    ]
+    
+}

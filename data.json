@@ -1,0 +1,35 @@
+{
+    "data":[
+        [
+            {
+                "dn" : "OU=OPS-Inter",
+                "name" : "OPS-Inter"
+            }
+        ],
+        [
+            {
+                "dn" : "OU=Beijing,OU=OPS-Inter",
+                "name" : "Beijing"
+            },
+            {
+                "dn" : "OU=Reg1,OU=Beijing,OU=OPS-Inter",
+                "name" : "Reg1"
+            },
+            {
+                "dn" : "OU=Reg2,OU=Beijing,OU=OPS-Inter",
+                "name" : "Reg2"
+            }
+        ], 
+        [
+            {
+                "dn" : "OU=London,OU=OPS-Inter",
+                "name" : "London"
+            },
+            {
+                "dn" : "OU=Reg1,OU=London,OU=OPS-Inter",
+                "name" : "Reg1"
+            }
+        ]
+    ]
+    
+}
