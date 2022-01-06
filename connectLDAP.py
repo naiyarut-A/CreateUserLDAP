@@ -63,35 +63,80 @@ def addUser():
         c.add(userdn, attributes=attribute)
 
 
+        # Part: Set password, UAC and write log file
         if c.result['description']=='success':
             # set password - must be done before enabling user
             # you must connect with SSL to set the password 
             c.extend.microsoft.modify_password(userdn, userpswd)
-            # enable user (after password set)
-            c.modify(userdn, {'userAccountControl': [('MODIFY_REPLACE', 512)]})
+            
+            searchParameters = { 'search_base': userdn, 
+                'search_filter': '(objectClass=Person)',
+                'attributes': ['cn', 'givenName','pwdLastSet'],
+                'paged_size': 100 }
+            c.search(**searchParameters)
+            for entry in c.entries:
+                # Check password already is set
+                if str(entry['pwdLastSet']) != '1601-01-01 00:00:00+00:00':
 
-            # Write log file before return success
-            try:
-                # Time zone in Thailand UTC+7
-                tz = timezone(timedelta(hours = 7))
-                # Create a date object with given timezone
-                date = datetime.now(tz=tz)
-                timeStamp = date.isoformat(sep = " ")
-                print("current time:-", date.isoformat(sep = " "))
+                    # when password is set then enable user (after password set)
+                    c.modify(userdn, {'userAccountControl': [('MODIFY_REPLACE', 512)]})
 
-                attribute['userpswd'] = userpswd
-                attribute['userdn'] = userdn
+                    # Write log file before return success
+                    try:
+                        # Time zone in Thailand UTC+7
+                        tz = timezone(timedelta(hours = 7))
+                        # Create a date object with given timezone
+                        date = datetime.now(tz=tz)
+                        timeStamp = date.isoformat(sep = " ")
+                        attribute['userpswd'] = userpswd
+                        attribute['userdn'] = userdn
 
-                
-                log = open("log.txt", "a")
-                content = 'timeStamp: '+timeStamp+'  '+'valueObject: '+str(attribute)+'\n'
-                log.write(content)
-                log.close()
-            except Exception as err:
-                return jsonify({'result' : False, 'errorMessage' : 'Fail to write log file: \n'+err})
+                        dateArr = str(timeStamp).split()
+                        getDate = dateArr[0]
+                        log = open("log_"+getDate+".txt", "a")
+                        content = 'timeStamp: '+timeStamp+'  '+'valueObject: '+str(attribute)+'\n'
+                        log.write(content)
+                        log.close()
+                         # return response api case success
+                        return jsonify({'result' : True,'errorMessage' : ''})
+
+                    except Exception as err:
+                        c.delete(userdn)
+                        return jsonify({'result' : False, 'errorMessage' : 'Fail to write log file'})
+                    
+                else:
+                    # paasword can not set so remove user that just add in AD and return response api case error
+                    c.delete(userdn)
+                    return jsonify({'result' : False,'errorMessage' : 'Fail to add user because condition set password not valid that cannot set password'})
+
             
 
-            return jsonify({'result' : True,'errorMessage' : ''})
+            # # enable user (after password set)
+            # c.modify(userdn, {'userAccountControl': [('MODIFY_REPLACE', 512)]})
+            
+
+            # # Write log file before return success
+            # try:
+            #     # Time zone in Thailand UTC+7
+            #     tz = timezone(timedelta(hours = 7))
+            #     # Create a date object with given timezone
+            #     date = datetime.now(tz=tz)
+            #     timeStamp = date.isoformat(sep = " ")
+            #     print("current time:-", date.isoformat(sep = " "))
+
+            #     attribute['userpswd'] = userpswd
+            #     attribute['userdn'] = userdn
+
+                
+            #     log = open("log.txt", "a")
+            #     content = 'timeStamp: '+timeStamp+'  '+'valueObject: '+str(attribute)+'\n'
+            #     log.write(content)
+            #     log.close()
+            # except Exception as err:
+            #     return jsonify({'result' : False, 'errorMessage' : 'Fail to write log file: \n'+err})
+            
+
+            # return jsonify({'result' : True,'errorMessage' : ''})
 
         else:
             print(c.result)
