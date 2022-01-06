@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "3751dcfa-5771-4ac4-b8cc-ab9b477025e6",
+		"_postman_id": "485168b1-5d1e-4e9f-978c-b4cd90cb6525",
 		"name": "createUserToLDAP",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"firstname\":\"Naiyarut\",\r\n    \"lastname\":\"Areeprayoonkij\",\r\n    \"fullname\":\"Naiyarut Areeprayoonkij\",\r\n    \"description\":\"นัยรัตน์ อารีประยูรกิจ\",\r\n    \"officename\":\"ICTC\",\r\n    \"tel\":\"0892893000\",\r\n    \"mail\":\"naiyarut@hotmail.com\",\r\n    \"homepage\":\"119000290390023\",\r\n    \"userlogon\":\"naiyaruta\",\r\n    \"userpwd\":\"Na@1234567.\",\r\n    \"subOU\":\"\"\r\n}",
+					"raw": "{\r\n    \"firstname\":\"John\",\r\n    \"lastname\":\"Smith\",\r\n    \"fullname\":\"John Smith\",\r\n    \"description\":\"Outsource\",\r\n    \"officename\":\"ICTC\",\r\n    \"tel\":\"0892893123\",\r\n    \"mail\":\"john@hotmail.com\",\r\n    \"homepage\":\"119000290390024\",\r\n    \"userlogon\":\"johns\",\r\n    \"userpwd\":\"S@mpleP@ss1234567$$\",\r\n    \"subOU\":\"OU=Beijing,OU=OPS-Inter\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -31,6 +31,40 @@
 					"port": "5000",
 					"path": [
 						"createuser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5000/folderlist",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/folderlist",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"folderlist"
 					]
 				}
 			},
