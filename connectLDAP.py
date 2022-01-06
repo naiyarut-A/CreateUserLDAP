@@ -37,7 +37,7 @@ def addUser():
 
 
     # connect - specifying port 636 is only for reference as it's inferred
-    server = Server('ldaps://OPS-AD-TEST.ictc.ops:636')
+    server = Server('ldaps://'+domain+':636')
     c = Connection(server, user=loginun, password=loginpw, authentication=NTLM)
 
     if not c.bind():
@@ -98,46 +98,6 @@ def getFolderList():
                     currentFolder = currentFolder+i # Concat list in 'data' key on current file json(concat in own file)
 
         allFolder = allFolder+currentFolder # Concat together list from each file(concat between file)
-    
-
-    # allFolder = [
-    #     {
-    #         "dn" : "OU=Center",
-    #         "name" : "Center"
-    #     },
-    #     {
-    #         "dn" : "OU=OPS-Inter",
-    #         "name" : "OPS-Inter"
-    #     },
-    #     {
-    #         "dn" : "OU=Beijing,OU=OPS-Inter",
-    #         "name" : "Beijing"
-    #     },
-    #     {
-    #         "dn" : "OU=Reg1,OU=Beijing,OU=OPS-Inter",
-    #         "name" : "Reg1"
-    #     },
-    #     {
-    #         "dn" : "OU=Reg2,OU=Beijing,OU=OPS-Inter",
-    #         "name" : "Reg2"
-    #     },
-    #     {
-    #         "dn" : "OU=London,OU=OPS-Inter",
-    #         "name" : "London"
-    #     },
-    #     {
-    #         "dn" : "OU=Reg1,OU=London,OU=OPS-Inter",
-    #         "name" : "Reg1"
-    #     },
-    #     {
-    #         "dn" : "OU=OPS",
-    #         "name" : "OPS"
-    #     },
-    #     {
-    #         "dn" : "OU=ICTC,OU=OPS",
-    #         "name" : "ICTC"
-    #     }
-    # ]
 
     # # Setup base connection
     # domain = 'OPS-AD-TEST.ictc.ops'
