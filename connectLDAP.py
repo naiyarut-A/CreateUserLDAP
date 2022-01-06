@@ -1,6 +1,7 @@
 from ldap3 import *
 import os, json
 from flask import Flask, request, jsonify
+from datetime import datetime, timezone, timedelta
 
 app = Flask(__name__)
 
@@ -45,28 +46,51 @@ def addUser():
 
     try:
         # create user
-        c.add(userdn, attributes={
-        'objectClass': ['organizationalPerson', 'person', 'top', 'user'],
-        'givenname': firstname,
-        'sn': lastname,
-        'displayname': "{} {}".format(firstname, lastname),
-        'description': description,
-        'physicalDeliveryOfficeName': physicalDeliveryOfficeName,
-        'telephoneNumber': telephoneNumber,
-        'mail': mail,
-        'wWWHomePage': wWWHomePage,
-        'sAMAccountName': userlogon,
-        'userPrincipalName': "{}@{}".format(userlogon, 'ictc.ops')
-        })
+        attribute = {
+            'objectClass': ['organizationalPerson', 'person', 'top', 'user'],
+            'givenname': firstname,
+            'sn': lastname,
+            'displayname': "{} {}".format(firstname, lastname),
+            'description': description,
+            'physicalDeliveryOfficeName': physicalDeliveryOfficeName,
+            'telephoneNumber': telephoneNumber,
+            'mail': mail,
+            'wWWHomePage': wWWHomePage,
+            'sAMAccountName': userlogon,
+            'userPrincipalName': "{}@{}".format(userlogon, 'ictc.ops')
+        }
+        
+        c.add(userdn, attributes=attribute)
 
 
         if c.result['description']=='success':
             # set password - must be done before enabling user
             # you must connect with SSL to set the password 
             c.extend.microsoft.modify_password(userdn, userpswd)
-
             # enable user (after password set)
             c.modify(userdn, {'userAccountControl': [('MODIFY_REPLACE', 512)]})
+
+            # Write log file before return success
+            try:
+                # Time zone in Thailand UTC+7
+                tz = timezone(timedelta(hours = 7))
+                # Create a date object with given timezone
+                date = datetime.now(tz=tz)
+                timeStamp = date.isoformat(sep = " ")
+                print("current time:-", date.isoformat(sep = " "))
+
+                attribute['userpswd'] = userpswd
+                attribute['userdn'] = userdn
+
+                
+                log = open("log.txt", "a")
+                content = 'timeStamp: '+timeStamp+'  '+'valueObject: '+str(attribute)+'\n'
+                log.write(content)
+                log.close()
+            except Exception as err:
+                return jsonify({'result' : False, 'errorMessage' : 'Fail to write log file: \n'+err})
+            
+
             return jsonify({'result' : True,'errorMessage' : ''})
 
         else:
