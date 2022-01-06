@@ -1,0 +1,39 @@
+{
+    "data":[
+        [
+            {
+                "dn" : "OU=OPS-Inter",
+                "name" : "OPS-Inter"
+            }
+        ],
+        [
+            "_comment: Start point of beijing OU",
+            {
+                "dn" : "OU=beijing,OU=OPS-Inter",
+                "name" : "beijing"
+            }
+        ],
+        [
+            "_comment: Start point of brussell OU",
+            {
+                "dn" : "OU=brussell,OU=OPS-Inter",
+                "name" : "brussell"
+            }
+        ],
+        [
+            "_comment: Start point of Geneva OU",
+            {
+                "dn" : "OU=Geneva,OU=OPS-Inter",
+                "name" : "Geneva"
+            }
+        ],
+        [
+            "_comment: Start point of washington OU",
+            {
+                "dn" : "OU=washington,OU=OPS-Inter",
+                "name" : "washington"
+            }
+        ]
+    ]
+    
+}

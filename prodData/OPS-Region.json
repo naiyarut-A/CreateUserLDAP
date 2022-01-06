@@ -1,0 +1,60 @@
+{
+    "data":[
+        [
+            {
+                "dn" : "OU=OPS-Region",
+                "name" : "OPS-Region"
+            }
+        ],
+        [
+            "_comment: Start point of Central OU",
+            {
+                "dn" : "OU=Central,OU=OPS-Region",
+                "name" : "Central"
+            }
+        ],
+        [
+            "_comment: Start point of Eastern OU",
+            {
+                "dn" : "OU=Eastern,OU=OPS-Region",
+                "name" : "Eastern"
+            }
+        ],
+        [
+            "_comment: Start point of Northeastern OU",
+            {
+                "dn" : "OU=Northeastern,OU=OPS-Region",
+                "name" : "Northeastern"
+            }
+        ],
+        [
+            "_comment: Start point of Northern OU",
+            {
+                "dn" : "OU=Northern,OU=OPS-Region",
+                "name" : "Northern"
+            }
+        ],
+        [
+            "_comment: Start point of Southern OU",
+            {
+                "dn" : "OU=Southern,OU=OPS-Region",
+                "name" : "Southern"
+            }
+        ],
+        [
+            "_comment: Start point of Unknow OU",
+            {
+                "dn" : "OU=Unknow,OU=OPS-Region",
+                "name" : "Unknow"
+            }
+        ],
+        [
+            "_comment: Start point of West OU",
+            {
+                "dn" : "OU=West,OU=OPS-Region",
+                "name" : "West"
+            }
+        ]
+    ]
+    
+}
