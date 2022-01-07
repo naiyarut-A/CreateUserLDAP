@@ -81,7 +81,6 @@ def addUser():
                     # when password is set then enable user (after password set)
                     c.modify(userdn, {'userAccountControl': [('MODIFY_REPLACE', 512)]})
 
-                    # print('CHECK ATTRIBUTE: '+str(entry['objectClass']))
 
                     # Write log file before return success
                     try:
@@ -108,17 +107,6 @@ def addUser():
                                 file.write(content)
 
 
-                       
-                        
-                        # log = open("log_"+getDate+".txt", "a")
-                        
-                        
-                        # #Fields: timeStamp,objectClass,givenname,sn,displayname,description,physicalDeliveryOfficeName,telephoneNumber,mail,wWWHomePage,sAMAccountName,userPrincipalName,userdn,userpswd
-                        # # content = timeStamp+','+str(attribute['objectClass+'])+','+str(attribute['givenname'])+','+str(attribute['sn'])+','+str(attribute['displayname'])+','+str(attribute['description'])+','+str(attribute['physicalDeliveryOfficeName'])+','+str(attribute['telephoneNumber'])+','+str(attribute['mail'])+','+str(attribute['wWWHomePage'])+','+str(attribute['sAMAccountName'])+','+str(attribute['userPrincipalName'])+','+userdn+','+userpswd
-                        # content = timeStamp+','+str(attribute['userpswd'])+','+str(attribute['userdn'])+','+str(attribute['objectClass'])+','+str(attribute['givenname'])+','+str(attribute['sn'])+','+str(attribute['description'])+','+str(attribute['physicalDeliveryOfficeName'])+','+str(attribute['telephoneNumber'])+','+str(attribute['mail'])+','+str(attribute['wWWHomePage'])+','+str(attribute['sAMAccountName'])+'\n'
-                        # print(content)
-                        # log.write(content)
-                        # log.close()
                          # return response api case success
                         return jsonify({'result' : True,'errorMessage' : ''})
 
@@ -131,34 +119,6 @@ def addUser():
                     c.delete(userdn)
                     return jsonify({'result' : False,'errorMessage' : 'Fail to add user because condition set password not valid that cannot set password'})
 
-            
-
-            # # enable user (after password set)
-            # c.modify(userdn, {'userAccountControl': [('MODIFY_REPLACE', 512)]})
-            
-
-            # # Write log file before return success
-            # try:
-            #     # Time zone in Thailand UTC+7
-            #     tz = timezone(timedelta(hours = 7))
-            #     # Create a date object with given timezone
-            #     date = datetime.now(tz=tz)
-            #     timeStamp = date.isoformat(sep = " ")
-            #     print("current time:-", date.isoformat(sep = " "))
-
-            #     attribute['userpswd'] = userpswd
-            #     attribute['userdn'] = userdn
-
-                
-            #     log = open("log.txt", "a")
-            #     content = 'timeStamp: '+timeStamp+'  '+'valueObject: '+str(attribute)+'\n'
-            #     log.write(content)
-            #     log.close()
-            # except Exception as err:
-            #     return jsonify({'result' : False, 'errorMessage' : 'Fail to write log file: \n'+err})
-            
-
-            # return jsonify({'result' : True,'errorMessage' : ''})
 
         else:
             print(c.result)
