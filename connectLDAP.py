@@ -81,6 +81,8 @@ def addUser():
                     # when password is set then enable user (after password set)
                     c.modify(userdn, {'userAccountControl': [('MODIFY_REPLACE', 512)]})
 
+                    # print('CHECK ATTRIBUTE: '+str(entry['objectClass']))
+
                     # Write log file before return success
                     try:
                         # Time zone in Thailand UTC+7
@@ -90,13 +92,33 @@ def addUser():
                         timeStamp = date.isoformat(sep = " ")
                         attribute['userpswd'] = userpswd
                         attribute['userdn'] = userdn
-
                         dateArr = str(timeStamp).split()
                         getDate = dateArr[0]
-                        log = open("log_"+getDate+".txt", "a")
-                        content = 'timeStamp: '+timeStamp+'  '+'valueObject: '+str(attribute)+'\n'
-                        log.write(content)
-                        log.close()
+
+                        titleFiled = '//Fields: timeStamp#objectClass#givenname#sn#displayname#description#physicalDeliveryOfficeName#telephoneNumber#mail#wWWHomePage#sAMAccountName#userPrincipalName#userdn#userpswd'
+                        with open("log/log_"+getDate+".txt", "a+") as file:
+                            file.seek(0) # set position to start of file
+                            lines = file.read().splitlines() # now we won't have those newlines
+                            content = timeStamp+'#'+str(attribute['objectClass'])+'#'+str(attribute['givenname'])+'#'+str(attribute['sn'])+'#'+str(attribute['displayname'])+'#'+str(attribute['description'])+'#'+str(attribute['physicalDeliveryOfficeName'])+'#'+str(attribute['telephoneNumber'])+'#'+str(attribute['mail'])+'#'+str(attribute['wWWHomePage'])+'#'+str(attribute['sAMAccountName'])+'#'+str(attribute['userPrincipalName'])+'#'+str(attribute['userdn'])+'#'+str(attribute['userpswd'])+'\n'
+                            if titleFiled in lines:
+                                file.write(content)
+                            else:
+                                # write to file
+                                file.write(titleFiled + "\n") # in append mode writes will always go to the end, so no need to seek() here
+                                file.write(content)
+
+
+                       
+                        
+                        # log = open("log_"+getDate+".txt", "a")
+                        
+                        
+                        # #Fields: timeStamp,objectClass,givenname,sn,displayname,description,physicalDeliveryOfficeName,telephoneNumber,mail,wWWHomePage,sAMAccountName,userPrincipalName,userdn,userpswd
+                        # # content = timeStamp+','+str(attribute['objectClass+'])+','+str(attribute['givenname'])+','+str(attribute['sn'])+','+str(attribute['displayname'])+','+str(attribute['description'])+','+str(attribute['physicalDeliveryOfficeName'])+','+str(attribute['telephoneNumber'])+','+str(attribute['mail'])+','+str(attribute['wWWHomePage'])+','+str(attribute['sAMAccountName'])+','+str(attribute['userPrincipalName'])+','+userdn+','+userpswd
+                        # content = timeStamp+','+str(attribute['userpswd'])+','+str(attribute['userdn'])+','+str(attribute['objectClass'])+','+str(attribute['givenname'])+','+str(attribute['sn'])+','+str(attribute['description'])+','+str(attribute['physicalDeliveryOfficeName'])+','+str(attribute['telephoneNumber'])+','+str(attribute['mail'])+','+str(attribute['wWWHomePage'])+','+str(attribute['sAMAccountName'])+'\n'
+                        # print(content)
+                        # log.write(content)
+                        # log.close()
                          # return response api case success
                         return jsonify({'result' : True,'errorMessage' : ''})
 
