@@ -95,7 +95,7 @@ def addUser():
                         getDate = dateArr[0]
 
                         titleFiled = '//Fields: timeStamp#objectClass#givenname#sn#displayname#description#physicalDeliveryOfficeName#telephoneNumber#mail#wWWHomePage#sAMAccountName#userPrincipalName#userdn#userpswd'
-                        with open("log/log_"+getDate+".txt", "a+") as file:
+                        with open("log/log_"+getDate+".txt", "a+", encoding="utf8") as file:
                             file.seek(0) # set position to start of file
                             lines = file.read().splitlines() # now we won't have those newlines
                             content = timeStamp+'#'+str(attribute['objectClass'])+'#'+str(attribute['givenname'])+'#'+str(attribute['sn'])+'#'+str(attribute['displayname'])+'#'+str(attribute['description'])+'#'+str(attribute['physicalDeliveryOfficeName'])+'#'+str(attribute['telephoneNumber'])+'#'+str(attribute['mail'])+'#'+str(attribute['wWWHomePage'])+'#'+str(attribute['sAMAccountName'])+'#'+str(attribute['userPrincipalName'])+'#'+str(attribute['userdn'])+'#'+str(attribute['userpswd'])+'\n'
