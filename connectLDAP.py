@@ -141,7 +141,7 @@ def getFolderList():
     for file_name in [file for file in os.listdir(path_to_json) if file.endswith('.json')]:
         currentFolder = []
         # Opening JSON file
-        with open(path_to_json + file_name) as json_file:
+        with open(path_to_json + file_name, encoding="utf8") as json_file:
             data = json.load(json_file)
             if data['data']:
                 for i in data['data']:
