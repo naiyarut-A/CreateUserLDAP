@@ -298,6 +298,30 @@
             {
                 "dn" : "OU=PERSD,OU=OPS",
                 "name" : "PERSD"
+            },
+            {
+                "dn" : "OU=Admin,OU=PERSD,OU=OPS",
+                "name" : "Admin"
+            },
+            {
+                "dn" : "OU=Discipline,OU=PERSD,OU=OPS",
+                "name" : "Discipline"
+            },
+            {
+                "dn" : "OU=Manpower,OU=PERSD,OU=OPS",
+                "name" : "Manpower"
+            },
+            {
+                "dn" : "OU=none,OU=PERSD,OU=OPS",
+                "name" : "none"
+            },
+            {
+                "dn" : "OU=PersonnelDirector,OU=PERSD,OU=OPS",
+                "name" : "PersonnelDirector"
+            },
+            {
+                "dn" : "OU=Recruitment,OU=PERSD,OU=OPS",
+                "name" : "Recruitment"
             }
         ],
         [
@@ -305,6 +329,14 @@
             {
                 "dn" : "OU=PSDG,OU=OPS",
                 "name" : "PSDG"
+            },
+            {
+                "dn" : "OU=employee,OU=PSDG,OU=OPS",
+                "name" : "employee"
+            },
+            {
+                "dn" : "OU=none,OU=PSDG,OU=OPS",
+                "name" : "none"
             }
         ],
         [
