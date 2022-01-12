@@ -12,7 +12,7 @@
                 "dn" : "OU=Central,OU=OPS-Region",
                 "name" : "Central"
             },
-            "_comment: Start point of leading province's name with 'A' char OU",
+            "_comment: Start point of Central OU and subOU start with 'A'",
             {
                 "dn" : "OU=AngThong,OU=Central,OU=OPS-Region",
                 "name" : "AngThong"
@@ -29,7 +29,7 @@
                 "dn" : "OU=none,OU=Ayuthaya,OU=Central,OU=OPS-Region",
                 "name" : "none"
             },
-            "_comment: Start point of leading province's name with 'C' char OU",
+            "_comment: Start point of Central OU and subOU start with 'C'",
             {
                 "dn" : "OU=Chainat,OU=Central,OU=OPS-Region",
                 "name" : "Chainat"
@@ -38,7 +38,7 @@
                 "dn" : "OU=none,OU=Chainat,OU=Central,OU=OPS-Region",
                 "name" : "none"
             },
-            "_comment: Start point of leading province's name with 'K' char OU",
+            "_comment: Start point of Central OU and subOU start with 'K'",
             {
                 "dn" : "OU=Kamphaengpet,OU=Central,OU=OPS-Region",
                 "name" : "Kamphaengpet"
@@ -47,7 +47,7 @@
                 "dn" : "OU=none,OU=Kamphaengpet,OU=Central,OU=OPS-Region",
                 "name" : "none"
             },
-            "_comment: Start point of leading province's name with 'L' char OU",
+            "_comment: Start point of Central OU and subOU start with 'L'",
             {
                 "dn" : "OU=Lopburi,OU=Central,OU=OPS-Region",
                 "name" : "Lopburi"
@@ -56,7 +56,7 @@
                 "dn" : "OU=none,OU=Lopburi,OU=Central,OU=OPS-Region",
                 "name" : "none"
             },
-            "_comment: Start point of leading province's name with 'N' char OU",
+            "_comment: Start point of Central OU and subOU start with 'N'",
             {
                 "dn" : "OU=Nakhonnayok,OU=Central,OU=OPS-Region",
                 "name" : "Nakhonnayok"
@@ -89,7 +89,7 @@
                 "dn" : "OU=none,OU=Nonthaburi,OU=Central,OU=OPS-Region",
                 "name" : "none"
             },
-            "_comment: Start point of leading province's name with 'P' char OU",
+            "_comment: Start point of Central OU and subOU start with 'P'",
             {
                 "dn" : "OU=Petchabun,OU=Central,OU=OPS-Region",
                 "name" : "Petchabun"
@@ -122,7 +122,7 @@
                 "dn" : "OU=none,OU=Phitsanulok,OU=Central,OU=OPS-Region",
                 "name" : "none"
             },
-            "_comment: Start point of leading province's name with 'S' char OU",
+            "_comment: Start point of Central OU and subOU start with 'S'",
             {
                 "dn" : "OU=Samutprakan,OU=Central,OU=OPS-Region",
                 "name" : "Samutprakan"
@@ -179,7 +179,7 @@
                 "dn" : "OU=none,OU=Suphanburi,OU=Central,OU=OPS-Region",
                 "name" : "none"
             },
-            "_comment: Start point of leading province's name with 'U' char OU",
+            "_comment: Start point of Central OU and subOU start with 'U'",
             {
                 "dn" : "OU=Uthaithani,OU=Central,OU=OPS-Region",
                 "name" : "Uthaithani"
@@ -191,7 +191,7 @@
                 "dn" : "OU=Eastern,OU=OPS-Region",
                 "name" : "Eastern"
             },
-            "_comment: Start point of leading province's name with 'C' char OU",
+            "_comment: Start point of Eastern OU and subOU start with 'C'",
             {
                 "dn" : "OU=Chachoengsao,OU=Eastern,OU=OPS-Region",
                 "name" : "Chachoengsao"
@@ -216,7 +216,7 @@
                 "dn" : "OU=none,OU=Chonburi,OU=Eastern,OU=OPS-Region",
                 "name" : "none"
             },
-            "_comment: Start point of leading province's name with 'P' char OU",
+            "_comment: Start point of Eastern OU and subOU start with 'P'",
             {
                 "dn" : "OU=Prachinburi,OU=Eastern,OU=OPS-Region",
                 "name" : "Prachinburi"
@@ -225,7 +225,7 @@
                 "dn" : "OU=none,OU=Prachinburi,OU=Eastern,OU=OPS-Region",
                 "name" : "none"
             },
-            "_comment: Start point of leading province's name with 'R' char OU",
+            "_comment: Start point of Eastern OU and subOU start with 'R'",
             {
                 "dn" : "OU=Rayong,OU=Eastern,OU=OPS-Region",
                 "name" : "Rayong"
@@ -234,7 +234,7 @@
                 "dn" : "OU=none,OU=Rayong,OU=Eastern,OU=OPS-Region",
                 "name" : "none"
             },
-            "_comment: Start point of leading province's name with 'S' char OU",
+            "_comment: Start point of Eastern OU and subOU start with 'S'",
             {
                 "dn" : "OU=Srakaeo,OU=Eastern,OU=OPS-Region",
                 "name" : "Srakaeo"
@@ -243,7 +243,7 @@
                 "dn" : "OU=none,OU=Srakaeo,OU=Eastern,OU=OPS-Region",
                 "name" : "none"
             },
-            "_comment: Start point of leading province's name with 'T' char OU",
+            "_comment: Start point of Eastern OU and subOU start with 'T'",
             {
                 "dn" : "OU=Trad,OU=Eastern,OU=OPS-Region",
                 "name" : "Trad"
@@ -266,7 +266,7 @@
                 "dn" : "OU=Northern,OU=OPS-Region",
                 "name" : "Northern"
             },
-            "_comment: Start point of leading province's name with 'C' char OU",
+            "_comment: Start point of Northern OU and subOU start with 'C'",
             {
                 "dn" : "OU=Chiangmai,OU=Northern,OU=OPS-Region",
                 "name" : "Chiangmai"
@@ -283,7 +283,7 @@
                 "dn" : "OU=none,OU=Chiangrai,OU=Northern,OU=OPS-Region",
                 "name" : "none"
             },
-            "_comment: Start point of leading province's name with 'L' char OU",
+            "_comment: Start point of Northern OU and subOU start with 'L'",
             {
                 "dn" : "OU=Lampang,OU=Northern,OU=OPS-Region",
                 "name" : "Lampang"
@@ -300,7 +300,7 @@
                 "dn" : "OU=none,OU=Lampoon,OU=Northern,OU=OPS-Region",
                 "name" : "none"
             },
-            "_comment: Start point of leading province's name with 'M' char OU",
+            "_comment: Start point of Northern OU and subOU start with 'M'",
             {
                 "dn" : "OU=Maehongson,OU=Northern,OU=OPS-Region",
                 "name" : "Maehongson"
@@ -309,7 +309,7 @@
                 "dn" : "OU=none,OU=Maehongson,OU=Northern,OU=OPS-Region",
                 "name" : "none"
             },
-            "_comment: Start point of leading province's name with 'N' char OU",
+            "_comment: Start point of Northern OU and subOU start with 'N'",
             {
                 "dn" : "OU=Nan,OU=Northern,OU=OPS-Region",
                 "name" : "Nan"
@@ -319,7 +319,7 @@
                 "name" : "none"
             }
             ,
-            "_comment: Start point of leading province's name with 'P' char OU",
+            "_comment: Start point of Northern OU and subOU start with 'P'",
             {
                 "dn" : "OU=Phayao,OU=Northern,OU=OPS-Region",
                 "name" : "Phayao"
@@ -336,7 +336,7 @@
                 "dn" : "OU=none,OU=Phrae,OU=Northern,OU=OPS-Region",
                 "name" : "none"
             },
-            "_comment: Start point of leading province's name with 'U' char OU",
+            "_comment: Start point of Northern OU and subOU start with 'U'",
             {
                 "dn" : "OU=Uttaradit,OU=Northern,OU=OPS-Region",
                 "name" : "Uttaradit"
@@ -366,7 +366,7 @@
                 "dn" : "OU=West,OU=OPS-Region",
                 "name" : "West"
             },
-            "_comment: Start point of leading province's name with 'K' char OU",
+            "_comment: Start point of West OU and subOU start with 'K'",
             {
                 "dn" : "OU=Kanchanaburi,OU=West,OU=OPS-Region",
                 "name" : "Kanchanaburi"
@@ -375,7 +375,7 @@
                 "dn" : "OU=none,OU=Kanchanaburi,OU=West,OU=OPS-Region",
                 "name" : "none"
             },
-            "_comment: Start point of leading province's name with 'P' char OU",
+            "_comment: Start point of West OU and subOU start with 'P'",
             {
                 "dn" : "OU=Petchaburi,OU=West,OU=OPS-Region",
                 "name" : "Petchaburi"
@@ -392,7 +392,7 @@
                 "dn" : "OU=none,OU=Prachuabkhirikhan,OU=West,OU=OPS-Region",
                 "name" : "none"
             },
-            "_comment: Start point of leading province's name with 'R' char OU",
+            "_comment: Start point of West OU and subOU start with 'R'",
             {
                 "dn" : "OU=Ratchaburi,OU=West,OU=OPS-Region",
                 "name" : "Ratchaburi"
@@ -401,7 +401,7 @@
                 "dn" : "OU=none,OU=Ratchaburi,OU=West,OU=OPS-Region",
                 "name" : "none"
             },
-            "_comment: Start point of leading province's name with 'T' char OU",
+            "_comment: Start point of West OU and subOU start with 'T'",
             {
                 "dn" : "OU=Tak,OU=West,OU=OPS-Region",
                 "name" : "Tak"
