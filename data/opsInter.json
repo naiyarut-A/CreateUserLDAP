@@ -17,6 +17,10 @@
                 "name" : "Reg1"
             },
             {
+                "dn" : "OU=SubReg1 กลาง,OU=Reg1,OU=Beijing,OU=OPS-Inter",
+                "name" : "SubReg1 กลาง"
+            },
+            {
                 "dn" : "OU=Reg2,OU=Beijing,OU=OPS-Inter",
                 "name" : "Reg2"
             }
