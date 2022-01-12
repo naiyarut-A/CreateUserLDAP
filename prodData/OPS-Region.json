@@ -265,6 +265,85 @@
             {
                 "dn" : "OU=Northern,OU=OPS-Region",
                 "name" : "Northern"
+            },
+            "_comment: Start point of leading province's name with 'C' char OU",
+            {
+                "dn" : "OU=Chiangmai,OU=Northern,OU=OPS-Region",
+                "name" : "Chiangmai"
+            },
+            {
+                "dn" : "OU=none,OU=Chiangmai,OU=Northern,OU=OPS-Region",
+                "name" : "none"
+            },
+            {
+                "dn" : "OU=Chiangrai,OU=Northern,OU=OPS-Region",
+                "name" : "Chiangrai"
+            },
+            {
+                "dn" : "OU=none,OU=Chiangrai,OU=Northern,OU=OPS-Region",
+                "name" : "none"
+            },
+            "_comment: Start point of leading province's name with 'L' char OU",
+            {
+                "dn" : "OU=Lampang,OU=Northern,OU=OPS-Region",
+                "name" : "Lampang"
+            },
+            {
+                "dn" : "OU=none,OU=Lampang,OU=Northern,OU=OPS-Region",
+                "name" : "none"
+            },
+            {
+                "dn" : "OU=Lampoon,OU=Northern,OU=OPS-Region",
+                "name" : "Lampoon"
+            },
+            {
+                "dn" : "OU=none,OU=Lampoon,OU=Northern,OU=OPS-Region",
+                "name" : "none"
+            },
+            "_comment: Start point of leading province's name with 'M' char OU",
+            {
+                "dn" : "OU=Maehongson,OU=Northern,OU=OPS-Region",
+                "name" : "Maehongson"
+            },
+            {
+                "dn" : "OU=none,OU=Maehongson,OU=Northern,OU=OPS-Region",
+                "name" : "none"
+            },
+            "_comment: Start point of leading province's name with 'N' char OU",
+            {
+                "dn" : "OU=Nan,OU=Northern,OU=OPS-Region",
+                "name" : "Nan"
+            },
+            {
+                "dn" : "OU=none,OU=Nan,OU=Northern,OU=OPS-Region",
+                "name" : "none"
+            }
+            ,
+            "_comment: Start point of leading province's name with 'P' char OU",
+            {
+                "dn" : "OU=Phayao,OU=Northern,OU=OPS-Region",
+                "name" : "Phayao"
+            },
+            {
+                "dn" : "OU=none,OU=Phayao,OU=Northern,OU=OPS-Region",
+                "name" : "unknonwn"
+            },
+            {
+                "dn" : "OU=Phrae,OU=Northern,OU=OPS-Region",
+                "name" : "Phrae"
+            },
+            {
+                "dn" : "OU=none,OU=Phrae,OU=Northern,OU=OPS-Region",
+                "name" : "none"
+            },
+            "_comment: Start point of leading province's name with 'U' char OU",
+            {
+                "dn" : "OU=Uttaradit,OU=Northern,OU=OPS-Region",
+                "name" : "Uttaradit"
+            },
+            {
+                "dn" : "OU=none,OU=Uttaradit,OU=Northern,OU=OPS-Region",
+                "name" : "none"
             }
         ],
         [
@@ -286,6 +365,50 @@
             {
                 "dn" : "OU=West,OU=OPS-Region",
                 "name" : "West"
+            },
+            "_comment: Start point of leading province's name with 'K' char OU",
+            {
+                "dn" : "OU=Kanchanaburi,OU=West,OU=OPS-Region",
+                "name" : "Kanchanaburi"
+            },
+            {
+                "dn" : "OU=none,OU=Kanchanaburi,OU=West,OU=OPS-Region",
+                "name" : "none"
+            },
+            "_comment: Start point of leading province's name with 'P' char OU",
+            {
+                "dn" : "OU=Petchaburi,OU=West,OU=OPS-Region",
+                "name" : "Petchaburi"
+            },
+            {
+                "dn" : "OU=none,OU=Petchaburi,OU=West,OU=OPS-Region",
+                "name" : "none"
+            },
+            {
+                "dn" : "OU=Prachuabkhirikhan,OU=West,OU=OPS-Region",
+                "name" : "Prachuabkhirikhan"
+            },
+            {
+                "dn" : "OU=none,OU=Prachuabkhirikhan,OU=West,OU=OPS-Region",
+                "name" : "none"
+            },
+            "_comment: Start point of leading province's name with 'R' char OU",
+            {
+                "dn" : "OU=Ratchaburi,OU=West,OU=OPS-Region",
+                "name" : "Ratchaburi"
+            },
+            {
+                "dn" : "OU=none,OU=Ratchaburi,OU=West,OU=OPS-Region",
+                "name" : "none"
+            },
+            "_comment: Start point of leading province's name with 'T' char OU",
+            {
+                "dn" : "OU=Tak,OU=West,OU=OPS-Region",
+                "name" : "Tak"
+            },
+            {
+                "dn" : "OU=none,OU=Tak,OU=West,OU=OPS-Region",
+                "name" : "none"
             }
         ]
     ]
