@@ -1,0 +1,124 @@
+{
+    "data":[
+        [
+            "_comment: Start point of Eastern OU",
+            {
+                "dn" : "OU=Eastern,OU=OPS-Region",
+                "name" : "Eastern"
+            },
+            "_comment: Start point of Eastern OU and subOU start with 'C'",
+            {
+                "dn" : "OU=Chachoengsao,OU=Eastern,OU=OPS-Region",
+                "name" : "Chachoengsao"
+            },
+            {
+                "dn" : "OU=none,OU=Chachoengsao,OU=Eastern,OU=OPS-Region",
+                "name" : "none"
+            },
+            {
+                "dn" : "OU=Chanthaburi,OU=Eastern,OU=OPS-Region",
+                "name" : "Chanthaburi"
+            },
+            {
+                "dn" : "OU=none,OU=Chanthaburi,OU=Eastern,OU=OPS-Region",
+                "name" : "none"
+            },
+            {
+                "dn" : "OU=Chonburi,OU=Eastern,OU=OPS-Region",
+                "name" : "Chonburi"
+            },
+            {
+                "dn" : "OU=none,OU=Chonburi,OU=Eastern,OU=OPS-Region",
+                "name" : "none"
+            },
+            "_comment: Start point of Eastern OU and subOU start with 'P'",
+            {
+                "dn" : "OU=Prachinburi,OU=Eastern,OU=OPS-Region",
+                "name" : "Prachinburi"
+            },
+            {
+                "dn" : "OU=none,OU=Prachinburi,OU=Eastern,OU=OPS-Region",
+                "name" : "none"
+            },
+            "_comment: Start point of Eastern OU and subOU start with 'R'",
+            {
+                "dn" : "OU=Rayong,OU=Eastern,OU=OPS-Region",
+                "name" : "Rayong"
+            },
+            {
+                "dn" : "OU=none,OU=Rayong,OU=Eastern,OU=OPS-Region",
+                "name" : "none"
+            },
+            "_comment: Start point of Eastern OU and subOU start with 'S'",
+            {
+                "dn" : "OU=Srakaeo,OU=Eastern,OU=OPS-Region",
+                "name" : "Srakaeo"
+            },
+            {
+                "dn" : "OU=none,OU=Srakaeo,OU=Eastern,OU=OPS-Region",
+                "name" : "none"
+            },
+            "_comment: Start point of Eastern OU and subOU start with 'T'",
+            {
+                "dn" : "OU=Trad,OU=Eastern,OU=OPS-Region",
+                "name" : "Trad"
+            },
+            {
+                "dn" : "OU=none,OU=Trad,OU=Eastern,OU=OPS-Region",
+                "name" : "none"
+            }
+        ],
+        [
+            "_comment: Start point of West OU",
+            {
+                "dn" : "OU=West,OU=OPS-Region",
+                "name" : "West"
+            },
+            "_comment: Start point of West OU and subOU start with 'K'",
+            {
+                "dn" : "OU=Kanchanaburi,OU=West,OU=OPS-Region",
+                "name" : "Kanchanaburi"
+            },
+            {
+                "dn" : "OU=none,OU=Kanchanaburi,OU=West,OU=OPS-Region",
+                "name" : "none"
+            },
+            "_comment: Start point of West OU and subOU start with 'P'",
+            {
+                "dn" : "OU=Petchaburi,OU=West,OU=OPS-Region",
+                "name" : "Petchaburi"
+            },
+            {
+                "dn" : "OU=none,OU=Petchaburi,OU=West,OU=OPS-Region",
+                "name" : "none"
+            },
+            {
+                "dn" : "OU=Prachuabkhirikhan,OU=West,OU=OPS-Region",
+                "name" : "Prachuabkhirikhan"
+            },
+            {
+                "dn" : "OU=none,OU=Prachuabkhirikhan,OU=West,OU=OPS-Region",
+                "name" : "none"
+            },
+            "_comment: Start point of West OU and subOU start with 'R'",
+            {
+                "dn" : "OU=Ratchaburi,OU=West,OU=OPS-Region",
+                "name" : "Ratchaburi"
+            },
+            {
+                "dn" : "OU=none,OU=Ratchaburi,OU=West,OU=OPS-Region",
+                "name" : "none"
+            },
+            "_comment: Start point of West OU and subOU start with 'T'",
+            {
+                "dn" : "OU=Tak,OU=West,OU=OPS-Region",
+                "name" : "Tak"
+            },
+            {
+                "dn" : "OU=none,OU=Tak,OU=West,OU=OPS-Region",
+                "name" : "none"
+            }
+        ]
+    ]
+    
+}

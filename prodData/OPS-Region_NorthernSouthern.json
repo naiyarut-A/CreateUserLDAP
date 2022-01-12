@@ -1,0 +1,226 @@
+{
+    "data":[
+        [
+            "_comment: Start point of Northern OU",
+            {
+                "dn" : "OU=Northern,OU=OPS-Region",
+                "name" : "Northern"
+            },
+            "_comment: Start point of Northern OU and subOU start with 'C'",
+            {
+                "dn" : "OU=Chiangmai,OU=Northern,OU=OPS-Region",
+                "name" : "Chiangmai"
+            },
+            {
+                "dn" : "OU=none,OU=Chiangmai,OU=Northern,OU=OPS-Region",
+                "name" : "none"
+            },
+            {
+                "dn" : "OU=Chiangrai,OU=Northern,OU=OPS-Region",
+                "name" : "Chiangrai"
+            },
+            {
+                "dn" : "OU=none,OU=Chiangrai,OU=Northern,OU=OPS-Region",
+                "name" : "none"
+            },
+            "_comment: Start point of Northern OU and subOU start with 'L'",
+            {
+                "dn" : "OU=Lampang,OU=Northern,OU=OPS-Region",
+                "name" : "Lampang"
+            },
+            {
+                "dn" : "OU=none,OU=Lampang,OU=Northern,OU=OPS-Region",
+                "name" : "none"
+            },
+            {
+                "dn" : "OU=Lampoon,OU=Northern,OU=OPS-Region",
+                "name" : "Lampoon"
+            },
+            {
+                "dn" : "OU=none,OU=Lampoon,OU=Northern,OU=OPS-Region",
+                "name" : "none"
+            },
+            "_comment: Start point of Northern OU and subOU start with 'M'",
+            {
+                "dn" : "OU=Maehongson,OU=Northern,OU=OPS-Region",
+                "name" : "Maehongson"
+            },
+            {
+                "dn" : "OU=none,OU=Maehongson,OU=Northern,OU=OPS-Region",
+                "name" : "none"
+            },
+            "_comment: Start point of Northern OU and subOU start with 'N'",
+            {
+                "dn" : "OU=Nan,OU=Northern,OU=OPS-Region",
+                "name" : "Nan"
+            },
+            {
+                "dn" : "OU=none,OU=Nan,OU=Northern,OU=OPS-Region",
+                "name" : "none"
+            }
+            ,
+            "_comment: Start point of Northern OU and subOU start with 'P'",
+            {
+                "dn" : "OU=Phayao,OU=Northern,OU=OPS-Region",
+                "name" : "Phayao"
+            },
+            {
+                "dn" : "OU=none,OU=Phayao,OU=Northern,OU=OPS-Region",
+                "name" : "unknonwn"
+            },
+            {
+                "dn" : "OU=Phrae,OU=Northern,OU=OPS-Region",
+                "name" : "Phrae"
+            },
+            {
+                "dn" : "OU=none,OU=Phrae,OU=Northern,OU=OPS-Region",
+                "name" : "none"
+            },
+            "_comment: Start point of Northern OU and subOU start with 'U'",
+            {
+                "dn" : "OU=Uttaradit,OU=Northern,OU=OPS-Region",
+                "name" : "Uttaradit"
+            },
+            {
+                "dn" : "OU=none,OU=Uttaradit,OU=Northern,OU=OPS-Region",
+                "name" : "none"
+            }
+        ],
+        [
+            "_comment: Start point of Southern OU",
+            {
+                "dn" : "OU=Southern,OU=OPS-Region",
+                "name" : "Southern"
+            },
+            "_comment: Start point of Southern OU and subOU start with 'C'",
+            {
+                "dn" : "OU=Chumphon,OU=Southern,OU=OPS-Region",
+                "name" : "Chumphon"
+            },
+            {
+                "dn" : "OU=none,OU=Chumphon,OU=Southern,OU=OPS-Region",
+                "name" : "none"
+            },
+            "_comment: Start point of Southern OU and subOU start with 'K'",
+            {
+                "dn" : "OU=Krabi,OU=Southern,OU=OPS-Region",
+                "name" : "Krabi"
+            },
+            {
+                "dn" : "OU=none,OU=Krabi,OU=Southern,OU=OPS-Region",
+                "name" : "none"
+            },
+            "_comment: Start point of Southern OU and subOU start with 'N'",
+            {
+                "dn" : "OU=Nakhonsithummarat,OU=Southern,OU=OPS-Region",
+                "name" : "Nakhonsithummarat"
+            },
+            {
+                "dn" : "OU=none,OU=Nakhonsithummarat,OU=Southern,OU=OPS-Region",
+                "name" : "none"
+            },
+            {
+                "dn" : "OU=Narathiwat,OU=Southern,OU=OPS-Region",
+                "name" : "Narathiwat"
+            },
+            {
+                "dn" : "OU=none,OU=Narathiwat,OU=Southern,OU=OPS-Region",
+                "name" : "none"
+            },
+            "_comment: Start point of Southern OU and subOU start with 'P'",
+            {
+                "dn" : "OU=Pattani,OU=Southern,OU=OPS-Region",
+                "name" : "Pattani"
+            },
+            {
+                "dn" : "OU=none,OU=Pattani,OU=Southern,OU=OPS-Region",
+                "name" : "none"
+            },
+            {
+                "dn" : "OU=Phangnga,OU=Southern,OU=OPS-Region",
+                "name" : "Phangnga"
+            },
+            {
+                "dn" : "OU=none,OU=Phangnga,OU=Southern,OU=OPS-Region",
+                "name" : "none"
+            },
+            {
+                "dn" : "OU=Phatthalung,OU=Southern,OU=OPS-Region",
+                "name" : "Phatthalung"
+            },
+            {
+                "dn" : "OU=none,OU=Phatthalung,OU=Southern,OU=OPS-Region",
+                "name" : "none"
+            },
+            {
+                "dn" : "OU=Phuket,OU=Southern,OU=OPS-Region",
+                "name" : "Phuket"
+            },
+            {
+                "dn" : "OU=none,OU=Phuket,OU=Southern,OU=OPS-Region",
+                "name" : "none"
+            },
+            "_comment: Start point of Southern OU and subOU start with 'R'",
+            {
+                "dn" : "OU=Ranong,OU=Southern,OU=OPS-Region",
+                "name" : "Ranong"
+            },
+            {
+                "dn" : "OU=none,OU=Ranong,OU=Southern,OU=OPS-Region",
+                "name" : "none"
+            },
+            "_comment: Start point of Southern OU and subOU start with 'S'",
+            {
+                "dn" : "OU=Satun,OU=Southern,OU=OPS-Region",
+                "name" : "Satun"
+            },
+            {
+                "dn" : "OU=mail,OU=Satun,OU=Southern,OU=OPS-Region",
+                "name" : "mail"
+            },
+            {
+                "dn" : "OU=none,OU=Satun,OU=Southern,OU=OPS-Region",
+                "name" : "none"
+            },
+            {
+                "dn" : "OU=SBPAC,OU=Southern,OU=OPS-Region",
+                "name" : "SBPAC"
+            },
+            {
+                "dn" : "OU=Songkhla,OU=Southern,OU=OPS-Region",
+                "name" : "Songkhla"
+            },
+            {
+                "dn" : "OU=none,OU=Songkhla,OU=Southern,OU=OPS-Region",
+                "name" : "none"
+            },
+            {
+                "dn" : "OU=Suratthani,OU=Southern,OU=OPS-Region",
+                "name" : "Suratthani"
+            },
+            {
+                "dn" : "OU=none,OU=Suratthani,OU=Southern,OU=OPS-Region",
+                "name" : "none"
+            },
+            "_comment: Start point of Southern OU and subOU start with 'C'",
+            {
+                "dn" : "OU=Trang,OU=Southern,OU=OPS-Region",
+                "name" : "Trang"
+            },
+            {
+                "dn" : "OU=none,OU=Trang,OU=Southern,OU=OPS-Region",
+                "name" : "none"
+            },
+            "_comment: Start point of Southern OU and subOU start with 'Y'",
+            {
+                "dn" : "OU=Yala,OU=Southern,OU=OPS-Region",
+                "name" : "Yala"
+            },
+            {
+                "dn" : "OU=none,OU=Yala,OU=Southern,OU=OPS-Region",
+                "name" : "none"
+            }
+        ]
+    ]
+    
+}

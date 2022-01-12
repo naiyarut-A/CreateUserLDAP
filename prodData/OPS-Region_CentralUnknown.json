@@ -1,0 +1,197 @@
+{
+    "data":[
+        [
+            {
+                "dn" : "OU=OPS-Region",
+                "name" : "OPS-Region"
+            }
+        ],
+        [
+            "_comment: Start point of Central OU",
+            {
+                "dn" : "OU=Central,OU=OPS-Region",
+                "name" : "Central"
+            },
+            "_comment: Start point of Central OU and subOU start with 'A'",
+            {
+                "dn" : "OU=AngThong,OU=Central,OU=OPS-Region",
+                "name" : "AngThong"
+            },
+            {
+                "dn" : "OU=none,OU=AngThong,OU=Central,OU=OPS-Region",
+                "name" : "none"
+            },
+            {
+                "dn" : "OU=Ayuthaya,OU=Central,OU=OPS-Region",
+                "name" : "Ayuthaya"
+            },
+            {
+                "dn" : "OU=none,OU=Ayuthaya,OU=Central,OU=OPS-Region",
+                "name" : "none"
+            },
+            "_comment: Start point of Central OU and subOU start with 'C'",
+            {
+                "dn" : "OU=Chainat,OU=Central,OU=OPS-Region",
+                "name" : "Chainat"
+            },
+            {
+                "dn" : "OU=none,OU=Chainat,OU=Central,OU=OPS-Region",
+                "name" : "none"
+            },
+            "_comment: Start point of Central OU and subOU start with 'K'",
+            {
+                "dn" : "OU=Kamphaengpet,OU=Central,OU=OPS-Region",
+                "name" : "Kamphaengpet"
+            },
+            {
+                "dn" : "OU=none,OU=Kamphaengpet,OU=Central,OU=OPS-Region",
+                "name" : "none"
+            },
+            "_comment: Start point of Central OU and subOU start with 'L'",
+            {
+                "dn" : "OU=Lopburi,OU=Central,OU=OPS-Region",
+                "name" : "Lopburi"
+            },
+            {
+                "dn" : "OU=none,OU=Lopburi,OU=Central,OU=OPS-Region",
+                "name" : "none"
+            },
+            "_comment: Start point of Central OU and subOU start with 'N'",
+            {
+                "dn" : "OU=Nakhonnayok,OU=Central,OU=OPS-Region",
+                "name" : "Nakhonnayok"
+            },
+            {
+                "dn" : "OU=none,OU=Nakhonnayok,OU=Central,OU=OPS-Region",
+                "name" : "none"
+            },
+            {
+                "dn" : "OU=Nakhonpathom,OU=Central,OU=OPS-Region",
+                "name" : "Nakhonpathom"
+            },
+            {
+                "dn" : "OU=none,OU=Nakhonpathom,OU=Central,OU=OPS-Region",
+                "name" : "none"
+            },
+            {
+                "dn" : "OU=Nakhonsawan,OU=Central,OU=OPS-Region",
+                "name" : "Nakhonsawan"
+            },
+            {
+                "dn" : "OU=none,OU=Nakhonsawan,OU=Central,OU=OPS-Region",
+                "name" : "none"
+            },
+            {
+                "dn" : "OU=Nonthaburi,OU=Central,OU=OPS-Region",
+                "name" : "Nonthaburi"
+            },
+            {
+                "dn" : "OU=none,OU=Nonthaburi,OU=Central,OU=OPS-Region",
+                "name" : "none"
+            },
+            "_comment: Start point of Central OU and subOU start with 'P'",
+            {
+                "dn" : "OU=Petchabun,OU=Central,OU=OPS-Region",
+                "name" : "Petchabun"
+            },
+            {
+                "dn" : "OU=none,OU=Petchabun,OU=Central,OU=OPS-Region",
+                "name" : "none"
+            },
+            {
+                "dn" : "OU=Phatumthani,OU=Central,OU=OPS-Region",
+                "name" : "Phatumthani"
+            },
+            {
+                "dn" : "OU=none,OU=Phatumthani,OU=Central,OU=OPS-Region",
+                "name" : "none"
+            },
+            {
+                "dn" : "OU=Phichit,OU=Central,OU=OPS-Region",
+                "name" : "Phichit"
+            },
+            {
+                "dn" : "OU=none,OU=Phichit,OU=Central,OU=OPS-Region",
+                "name" : "none"
+            },
+            {
+                "dn" : "OU=Phitsanulok,OU=Central,OU=OPS-Region",
+                "name" : "Phitsanulok"
+            },
+            {
+                "dn" : "OU=none,OU=Phitsanulok,OU=Central,OU=OPS-Region",
+                "name" : "none"
+            },
+            "_comment: Start point of Central OU and subOU start with 'S'",
+            {
+                "dn" : "OU=Samutprakan,OU=Central,OU=OPS-Region",
+                "name" : "Samutprakan"
+            },
+            {
+                "dn" : "OU=none,OU=Samutprakan,OU=Central,OU=OPS-Region",
+                "name" : "none"
+            },
+            {
+                "dn" : "OU=Samutsakhon,OU=Central,OU=OPS-Region",
+                "name" : "Samutsakhon"
+            },
+            {
+                "dn" : "OU=none,OU=Samutsakhon,OU=Central,OU=OPS-Region",
+                "name" : "none"
+            },
+            {
+                "dn" : "OU=Samutsongkhram,OU=Central,OU=OPS-Region",
+                "name" : "Samutsongkhram"
+            },
+            {
+                "dn" : "OU=none,OU=Samutsongkhram,OU=Central,OU=OPS-Region",
+                "name" : "none"
+            },
+            {
+                "dn" : "OU=Saraburi,OU=Central,OU=OPS-Region",
+                "name" : "Saraburi"
+            },
+            {
+                "dn" : "OU=none,OU=Saraburi,OU=Central,OU=OPS-Region",
+                "name" : "none"
+            },
+            {
+                "dn" : "OU=Singburi,OU=Central,OU=OPS-Region",
+                "name" : "Singburi"
+            },
+            {
+                "dn" : "OU=none,OU=Singburi,OU=Central,OU=OPS-Region",
+                "name" : "none"
+            },
+            {
+                "dn" : "OU=Sukhithai,OU=Central,OU=OPS-Region",
+                "name" : "Sukhithai"
+            },
+            {
+                "dn" : "OU=none,OU=Sukhithai,OU=Central,OU=OPS-Region",
+                "name" : "none"
+            },
+            {
+                "dn" : "OU=Suphanburi,OU=Central,OU=OPS-Region",
+                "name" : "Suphanburi"
+            },
+            {
+                "dn" : "OU=none,OU=Suphanburi,OU=Central,OU=OPS-Region",
+                "name" : "none"
+            },
+            "_comment: Start point of Central OU and subOU start with 'U'",
+            {
+                "dn" : "OU=Uthaithani,OU=Central,OU=OPS-Region",
+                "name" : "Uthaithani"
+            }
+        ],
+        [
+            "_comment: Start point of Unknow OU",
+            {
+                "dn" : "OU=Unknow,OU=OPS-Region",
+                "name" : "Unknow"
+            }
+        ]
+    ]
+    
+}

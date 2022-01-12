@@ -1,0 +1,12 @@
+{
+    "data":[
+        [
+            "_comment: Start point of Northeastern OU",
+            {
+                "dn" : "OU=Northeastern,OU=OPS-Region",
+                "name" : "Northeastern"
+            }
+        ]
+    ]
+    
+}
