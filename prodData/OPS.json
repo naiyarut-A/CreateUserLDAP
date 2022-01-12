@@ -25,6 +25,18 @@
             {
                 "dn" : "OU=ACO,OU=OPS",
                 "name" : "ACO"
+            },
+            {
+                "dn" : "OU=none,OU=ACO,OU=OPS",
+                "name" : "none"
+            },
+            {
+                "dn" : "OU=nonoe,OU=ACO,OU=OPS",
+                "name" : "nonoe"
+            },
+            {
+                "dn" : "OU=organization mail,OU=ACO,OU=OPS",
+                "name" : "organization mail"
             }
         ],
         [
@@ -32,6 +44,14 @@
             {
                 "dn" : "OU=AUDIT,OU=OPS",
                 "name" : "AUDIT"
+            },
+            {
+                "dn" : "OU=disable,OU=AUDIT,OU=OPS",
+                "name" : "disable"
+            },
+            {
+                "dn" : "OU=none,OU=AUDIT,OU=OPS",
+                "name" : "none"
             }
         ],
         [
@@ -39,6 +59,10 @@
             {
                 "dn" : "OU=CEO,OU=OPS",
                 "name" : "CEO"
+            },
+            {
+                "dn" : "OU=disable,OU=CEO,OU=OPS",
+                "name" : "disable"
             }
         ],
         [
@@ -53,6 +77,10 @@
             {
                 "dn" : "OU=Default,OU=OPS",
                 "name" : "Default"
+            },
+            {
+                "dn" : "OU=Hospital,OU=Default,OU=OPS",
+                "name" : "Hospital"
             }
         ],
         [
@@ -60,6 +88,26 @@
             {
                 "dn" : "OU=FINANCE,OU=OPS",
                 "name" : "FINANCE"
+            },
+            {
+                "dn" : "OU=disable,OU=FINANCE,OU=OPS",
+                "name" : "disable"
+            },
+            {
+                "dn" : "OU=employee,OU=FINANCE,OU=OPS",
+                "name" : "employee"
+            },
+            {
+                "dn" : "OU=none,OU=FINANCE,OU=OPS",
+                "name" : "none"
+            },
+            {
+                "dn" : "OU=organization mail,OU=FINANCE,OU=OPS",
+                "name" : "organization mail"
+            },
+            {
+                "dn" : "OU=transfer,OU=FINANCE,OU=OPS",
+                "name" : "transfer"
             }
         ],
         [
@@ -67,6 +115,26 @@
             {
                 "dn" : "OU=GNAD,OU=OPS",
                 "name" : "GNAD"
+            },
+            {
+                "dn" : "OU=disable,OU=GNAD,OU=OPS",
+                "name" : "disable"
+            },
+            {
+                "dn" : "OU=employee,OU=GNAD,OU=OPS",
+                "name" : "employee"
+            },
+            {
+                "dn" : "OU=none,OU=GNAD,OU=OPS",
+                "name" : "none"
+            },
+            {
+                "dn" : "OU=organization mail,OU=GNAD,OU=OPS",
+                "name" : "organization mail"
+            },
+            {
+                "dn" : "OU=user กลางเข้าเครื่อง,OU=GNAD,OU=OPS",
+                "name" : "user กลางเข้าเครื่อง"
             }
         ],
         [
@@ -74,6 +142,54 @@
             {
                 "dn" : "OU=ICTC,OU=OPS",
                 "name" : "ICTC"
+            },
+            {
+                "dn" : "OU=admin,OU=ICTC,OU=OPS",
+                "name" : "admin"
+            },
+            {
+                "dn" : "OU=data trade,OU=ICTC,OU=OPS",
+                "name" : "data trade"
+            },
+            {
+                "dn" : "OU=developer,OU=ICTC,OU=OPS",
+                "name" : "developer"
+            },
+            {
+                "dn" : "OU=director,OU=ICTC,OU=OPS",
+                "name" : "director"
+            },
+            {
+                "dn" : "OU=disable,OU=ICTC,OU=OPS",
+                "name" : "disable"
+            },
+            {
+                "dn" : "OU=ePayment,OU=ICTC,OU=OPS",
+                "name" : "ePayment"
+            },
+            {
+                "dn" : "OU=ICTCTest,OU=ICTC,OU=OPS",
+                "name" : "ICTCTest"
+            },
+            {
+                "dn" : "OU=innovation,OU=ICTC,OU=OPS",
+                "name" : "innovation"
+            },
+            {
+                "dn" : "OU=MOC Event Big Data,OU=ICTC,OU=OPS",
+                "name" : "MOC Event Big Data"
+            },
+            {
+                "dn" : "OU=network,OU=ICTC,OU=OPS",
+                "name" : "network"
+            },
+            {
+                "dn" : "OU=organization mail,OU=ICTC,OU=OPS",
+                "name" : "organization mail"
+            },
+            {
+                "dn" : "OU=planning,OU=ICTC,OU=OPS",
+                "name" : "planning"
             }
         ],
         [
@@ -81,6 +197,14 @@
             {
                 "dn" : "OU=INSPEC,OU=OPS",
                 "name" : "INSPEC"
+            },
+            {
+                "dn" : "OU=none,OU=INSPEC,OU=OPS",
+                "name" : "none"
+            },
+            {
+                "dn" : "OU=organization mail,OU=INSPEC,OU=OPS",
+                "name" : "organization mail"
             }
         ],
         [
@@ -88,6 +212,22 @@
             {
                 "dn" : "OU=KBP,OU=OPS",
                 "name" : "KBP"
+            },
+            {
+                "dn" : "OU=disable,OU=KBP,OU=OPS",
+                "name" : "disable"
+            },
+            {
+                "dn" : "OU=employee,OU=KBP,OU=OPS",
+                "name" : "employee"
+            },
+            {
+                "dn" : "OU=organization mail,OU=KBP,OU=OPS",
+                "name" : "organization mail"
+            },
+            {
+                "dn" : "OU=unknown,OU=KBP,OU=OPS",
+                "name" : "unknown"
             }
         ],
         [
@@ -95,6 +235,10 @@
             {
                 "dn" : "OU=LEGAL,OU=OPS",
                 "name" : "LEGAL"
+            },
+            {
+                "dn" : "OU=none,OU=LEGAL,OU=OPS",
+                "name" : "none"
             }
         ],
         [
@@ -109,6 +253,14 @@
             {
                 "dn" : "OU=OPS-PM,OU=OPS",
                 "name" : "OPS-PM"
+            },
+            {
+                "dn" : "OU=disable,OU=OPS-PM,OU=OPS",
+                "name" : "disable"
+            },
+            {
+                "dn" : "OU=Minister,OU=OPS-PM,OU=OPS",
+                "name" : "Minister"
             }
         ],
         [
@@ -123,6 +275,22 @@
             {
                 "dn" : "OU=PCNI,OU=OPS",
                 "name" : "PCNI"
+            },
+            {
+                "dn" : "OU=disable,OU=PCNI,OU=OPS",
+                "name" : "disable"
+            },
+            {
+                "dn" : "OU=employee,OU=PCNI,OU=OPS",
+                "name" : "employee"
+            },
+            {
+                "dn" : "OU=none,OU=PCNI,OU=OPS",
+                "name" : "none"
+            },
+            {
+                "dn" : "OU=organization mail,OU=PCNI,OU=OPS",
+                "name" : "organization mail"
             }
         ],
         [
@@ -144,6 +312,50 @@
             {
                 "dn" : "OU=SAPD,OU=OPS",
                 "name" : "SAPD"
+            },
+            {
+                "dn" : "OU=DIRECTOR,OU=SAPD,OU=OPS",
+                "name" : "DIRECTOR"
+            },
+            {
+                "dn" : "OU=disable,OU=SAPD,OU=OPS",
+                "name" : "disable"
+            },
+            {
+                "dn" : "OU=GA,OU=SAPD,OU=OPS",
+                "name" : "GA"
+            },
+            {
+                "dn" : "OU=ME,OU=SAPD,OU=OPS",
+                "name" : "ME"
+            },
+            {
+                "dn" : "OU=mocplan,OU=SAPD,OU=OPS",
+                "name" : "mocplan"
+            },
+            {
+                "dn" : "OU=none,OU=SAPD,OU=OPS",
+                "name" : "none"
+            },
+            {
+                "dn" : "OU=organization e-mail,OU=SAPD,OU=OPS",
+                "name" : "organization e-mail"
+            },
+            {
+                "dn" : "OU=SOGA,OU=SAPD,OU=OPS",
+                "name" : "SOGA"
+            },
+            {
+                "dn" : "OU=SP,OU=SAPD,OU=OPS",
+                "name" : "SP"
+            },
+            {
+                "dn" : "OU=test,OU=SAPD,OU=OPS",
+                "name" : "test"
+            },
+            {
+                "dn" : "OU=WP,OU=SAPD,OU=OPS",
+                "name" : "WP"
             }
         ],
         [
@@ -165,6 +377,10 @@
             {
                 "dn" : "OU=User Undefined,OU=OPS",
                 "name" : "User Undefined"
+            },
+            {
+                "dn" : "OU=disable,OU=User Undefined,OU=OPS",
+                "name" : "disable"
             }
         ],
         [
