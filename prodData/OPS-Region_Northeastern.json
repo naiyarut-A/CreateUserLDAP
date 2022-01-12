@@ -5,6 +5,177 @@
             {
                 "dn" : "OU=Northeastern,OU=OPS-Region",
                 "name" : "Northeastern"
+            },
+            "_comment: Start point of Northeastern OU and subOU start with 'A'",
+            {
+                "dn" : "OU=Amnatcharoen,OU=Northeastern,OU=OPS-Region",
+                "name" : "Amnatcharoen"
+            },
+            {
+                "dn" : "OU=none,OU=Amnatcharoen,OU=Northeastern,OU=OPS-Region",
+                "name" : "none"
+            },
+            "_comment: Start point of Northeastern OU and subOU start with 'B'",
+            {
+                "dn" : "OU=Buengkan,OU=Northeastern,OU=OPS-Region",
+                "name" : "Buengkan"
+            },
+            {
+                "dn" : "OU=none,OU=Buengkan,OU=Northeastern,OU=OPS-Region",
+                "name" : "none"
+            },
+            {
+                "dn" : "OU=Buriram,OU=Northeastern,OU=OPS-Region",
+                "name" : "Buriram"
+            },
+            {
+                "dn" : "OU=none,OU=Buriram,OU=Northeastern,OU=OPS-Region",
+                "name" : "none"
+            },
+            "_comment: Start point of Northeastern OU and subOU start with 'C'",
+            {
+                "dn" : "OU=Chaiyaphum,OU=Northeastern,OU=OPS-Region",
+                "name" : "Chaiyaphum"
+            },
+            {
+                "dn" : "OU=none,OU=Chaiyaphum,OU=Northeastern,OU=OPS-Region",
+                "name" : "none"
+            },
+            "_comment: Start point of Northeastern OU and subOU start with 'K'",
+            {
+                "dn" : "OU=Kalasin,OU=Northeastern,OU=OPS-Region",
+                "name" : "Kalasin"
+            },
+            {
+                "dn" : "OU=none,OU=Kalasin,OU=Northeastern,OU=OPS-Region",
+                "name" : "none"
+            },
+            {
+                "dn" : "OU=Khonkaen,OU=Northeastern,OU=OPS-Region",
+                "name" : "Khonkaen"
+            },
+            {
+                "dn" : "OU=none,OU=Khonkaen,OU=Northeastern,OU=OPS-Region",
+                "name" : "none"
+            },
+            "_comment: Start point of Northeastern OU and subOU start with 'L'",
+            {
+                "dn" : "OU=Loei,OU=Northeastern,OU=OPS-Region",
+                "name" : "Loei"
+            },
+            {
+                "dn" : "OU=none,OU=Loei,OU=Northeastern,OU=OPS-Region",
+                "name" : "none"
+            },
+            "_comment: Start point of Northeastern OU and subOU start with 'M'",
+            {
+                "dn" : "OU=Mahasarakham,OU=Northeastern,OU=OPS-Region",
+                "name" : "Mahasarakham"
+            },
+            {
+                "dn" : "OU=none,OU=Mahasarakham,OU=Northeastern,OU=OPS-Region",
+                "name" : "none"
+            },
+            {
+                "dn" : "OU=Mukdahan,OU=Northeastern,OU=OPS-Region",
+                "name" : "Mukdahan"
+            },
+            {
+                "dn" : "OU=none,OU=Mukdahan,OU=Northeastern,OU=OPS-Region",
+                "name" : "none"
+            },
+            "_comment: Start point of Northeastern OU and subOU start with 'N'",
+            {
+                "dn" : "OU=Nakhonphanom,OU=Northeastern,OU=OPS-Region",
+                "name" : "Nakhonphanom"
+            },
+            {
+                "dn" : "OU=none,OU=Nakhonphanom,OU=Northeastern,OU=OPS-Region",
+                "name" : "none"
+            },
+            {
+                "dn" : "OU=Nakhonrajchasima,OU=Northeastern,OU=OPS-Region",
+                "name" : "Nakhonrajchasima"
+            },
+            {
+                "dn" : "OU=none,OU=Nakhonrajchasima,OU=Northeastern,OU=OPS-Region",
+                "name" : "none"
+            },
+            {
+                "dn" : "OU=Nongbualamphu,OU=Northeastern,OU=OPS-Region",
+                "name" : "Nongbualamphu"
+            },
+            {
+                "dn" : "OU=none,OU=Nongbualamphu,OU=Northeastern,OU=OPS-Region",
+                "name" : "none"
+            },
+            {
+                "dn" : "OU=Nongkhai,OU=Northeastern,OU=OPS-Region",
+                "name" : "Nongkhai"
+            },
+            {
+                "dn" : "OU=none,OU=Nongkhai,OU=Northeastern,OU=OPS-Region",
+                "name" : "none"
+            },
+            "_comment: Start point of Northeastern OU and subOU start with 'R'",
+            {
+                "dn" : "OU=Roi-Et,OU=Northeastern,OU=OPS-Region",
+                "name" : "Roi-Et"
+            },
+            {
+                "dn" : "OU=none,OU=Roi-Et,OU=Northeastern,OU=OPS-Region",
+                "name" : "none"
+            },
+            "_comment: Start point of Northeastern OU and subOU start with 'S'",
+            {
+                "dn" : "OU=Sakhonnakorn,OU=Northeastern,OU=OPS-Region",
+                "name" : "Sakhonnakorn"
+            },
+            {
+                "dn" : "OU=none,OU=Sakhonnakorn,OU=Northeastern,OU=OPS-Region",
+                "name" : "none"
+            },
+            {
+                "dn" : "OU=Sisaket,OU=Northeastern,OU=OPS-Region",
+                "name" : "Sisaket"
+            },
+            {
+                "dn" : "OU=none,OU=Sisaket,OU=Northeastern,OU=OPS-Region",
+                "name" : "none"
+            },
+            {
+                "dn" : "OU=Surin,OU=Northeastern,OU=OPS-Region",
+                "name" : "Surin"
+            },
+            {
+                "dn" : "OU=none,OU=Surin,OU=Northeastern,OU=OPS-Region",
+                "name" : "none"
+            },
+            "_comment: Start point of Northeastern OU and subOU start with 'U'",
+            {
+                "dn" : "OU=Ubonratchathani,OU=Northeastern,OU=OPS-Region",
+                "name" : "Ubonratchathani"
+            },
+            {
+                "dn" : "OU=none,OU=Ubonratchathani,OU=Northeastern,OU=OPS-Region",
+                "name" : "none"
+            },
+            {
+                "dn" : "OU=Udonthani,OU=Northeastern,OU=OPS-Region",
+                "name" : "Udonthani"
+            },
+            {
+                "dn" : "OU=none,OU=Udonthani,OU=Northeastern,OU=OPS-Region",
+                "name" : "none"
+            },
+            "_comment: Start point of Northeastern OU and subOU start with 'Y'",
+            {
+                "dn" : "OU=Yasothon,OU=Northeastern,OU=OPS-Region",
+                "name" : "Yasothon"
+            },
+            {
+                "dn" : "OU=none,OU=Yasothon,OU=Northeastern,OU=OPS-Region",
+                "name" : "none"
             }
         ]
     ]
