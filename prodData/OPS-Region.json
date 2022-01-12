@@ -190,6 +190,67 @@
             {
                 "dn" : "OU=Eastern,OU=OPS-Region",
                 "name" : "Eastern"
+            },
+            "_comment: Start point of leading province's name with 'C' char OU",
+            {
+                "dn" : "OU=Chachoengsao,OU=Eastern,OU=OPS-Region",
+                "name" : "Chachoengsao"
+            },
+            {
+                "dn" : "OU=none,OU=Chachoengsao,OU=Eastern,OU=OPS-Region",
+                "name" : "none"
+            },
+            {
+                "dn" : "OU=Chanthaburi,OU=Eastern,OU=OPS-Region",
+                "name" : "Chanthaburi"
+            },
+            {
+                "dn" : "OU=none,OU=Chanthaburi,OU=Eastern,OU=OPS-Region",
+                "name" : "none"
+            },
+            {
+                "dn" : "OU=Chonburi,OU=Eastern,OU=OPS-Region",
+                "name" : "Chonburi"
+            },
+            {
+                "dn" : "OU=none,OU=Chonburi,OU=Eastern,OU=OPS-Region",
+                "name" : "none"
+            },
+            "_comment: Start point of leading province's name with 'P' char OU",
+            {
+                "dn" : "OU=Prachinburi,OU=Eastern,OU=OPS-Region",
+                "name" : "Prachinburi"
+            },
+            {
+                "dn" : "OU=none,OU=Prachinburi,OU=Eastern,OU=OPS-Region",
+                "name" : "none"
+            },
+            "_comment: Start point of leading province's name with 'R' char OU",
+            {
+                "dn" : "OU=Rayong,OU=Eastern,OU=OPS-Region",
+                "name" : "Rayong"
+            },
+            {
+                "dn" : "OU=none,OU=Rayong,OU=Eastern,OU=OPS-Region",
+                "name" : "none"
+            },
+            "_comment: Start point of leading province's name with 'S' char OU",
+            {
+                "dn" : "OU=Srakaeo,OU=Eastern,OU=OPS-Region",
+                "name" : "Srakaeo"
+            },
+            {
+                "dn" : "OU=none,OU=Srakaeo,OU=Eastern,OU=OPS-Region",
+                "name" : "none"
+            },
+            "_comment: Start point of leading province's name with 'T' char OU",
+            {
+                "dn" : "OU=Trad,OU=Eastern,OU=OPS-Region",
+                "name" : "Trad"
+            },
+            {
+                "dn" : "OU=none,OU=Trad,OU=Eastern,OU=OPS-Region",
+                "name" : "none"
             }
         ],
         [
