@@ -5,6 +5,55 @@
                 "dn" : "OU=TPSO",
                 "name" : "TPSO"
             }
+        ],
+        [
+            "_comment: Start point of disable OU",
+            {
+                "dn" : "OU=disable,OU=TPSO",
+                "name" : "disable"
+            }
+        ],
+        [
+            "_comment: Start point of employee OU",
+            {
+                "dn" : "OU=employee,OU=TPSO",
+                "name" : "employee"
+            }
+        ],
+        [
+            "_comment: Start point of none OU",
+            {
+                "dn" : "OU=none,OU=TPSO",
+                "name" : "none"
+            }
+        ],
+        [
+            "_comment: Start point of organization mail OU",
+            {
+                "dn" : "OU=organization mail,OU=TPSO",
+                "name" : "organization mail"
+            }
+        ],
+        [
+            "_comment: Start point of transfer OU",
+            {
+                "dn" : "OU=transfer,OU=TPSO",
+                "name" : "transfer"
+            }
+        ],
+        [
+            "_comment: Start point of user OU",
+            {
+                "dn" : "OU=user,OU=TPSO",
+                "name" : "user"
+            }
+        ],
+        [
+            "_comment: Start point of Vendor OU",
+            {
+                "dn" : "OU=Vendor,OU=TPSO",
+                "name" : "Vendor"
+            }
         ]
     ]
     

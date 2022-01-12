@@ -25,6 +25,10 @@
             {
                 "dn" : "OU=Geneva,OU=OPS-Inter",
                 "name" : "Geneva"
+            },
+            {
+                "dn" : "OU=none,OU=Geneva,OU=OPS-Inter",
+                "name" : "none"
             }
         ],
         [

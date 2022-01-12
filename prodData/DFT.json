@@ -5,6 +5,20 @@
                 "dn" : "OU=DFT",
                 "name" : "DFT"
             }
+        ],
+        [
+            "_comment: Start point of transfer OU",
+            {
+                "dn" : "OU=transfer,OU=DFT",
+                "name" : "transfer"
+            }
+        ],
+        [
+            "_comment: Start point of disable OU",
+            {
+                "dn" : "OU=disable,OU=DFT",
+                "name" : "disable"
+            }
         ]
     ]
     

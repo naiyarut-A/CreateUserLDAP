@@ -5,6 +5,13 @@
                 "dn" : "OU=DTN",
                 "name" : "DTN"
             }
+        ],
+        [
+            "_comment: Start point of disable OU",
+            {
+                "dn" : "OU=disable,OU=DTN",
+                "name" : "disable"
+            }
         ]
     ]
     

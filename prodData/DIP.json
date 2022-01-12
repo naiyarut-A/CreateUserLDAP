@@ -5,6 +5,13 @@
                 "dn" : "OU=DIP",
                 "name" : "DIP"
             }
+        ],
+        [
+            "_comment: Start point of disable 30/11/2563 OU",
+            {
+                "dn" : "OU=disable 30/11/2563,OU=DIP",
+                "name" : "disable 30/11/2563"
+            }
         ]
     ]
     

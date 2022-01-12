@@ -5,6 +5,34 @@
                 "dn" : "OU=SR",
                 "name" : "SR"
             }
+        ],
+        [
+            "_comment: Start point of disable OU",
+            {
+                "dn" : "OU=disable,OU=SR",
+                "name" : "disable"
+            }
+        ],
+        [
+            "_comment: Start point of none OU",
+            {
+                "dn" : "OU=none,OU=SR",
+                "name" : "none"
+            }
+        ],
+        [
+            "_comment: Start point of organization mail OU",
+            {
+                "dn" : "OU=organization mail,OU=SR",
+                "name" : "organization mail"
+            }
+        ],
+        [
+            "_comment: Start point of unknown OU",
+            {
+                "dn" : "OU=unknown,OU=SR",
+                "name" : "unknown"
+            }
         ]
     ]
     
