@@ -209,16 +209,12 @@ def getAllFolder():
         if results:
             for obj in results:
                 current_ous = dict()
-                ouArr = str(obj).split(',')
+                # ouArr = str(obj).split(',')
                 getdn = str(obj).split(",OU=test,DC=ictc,DC=ops",1)[0]
-                getCurrentFolder = ouArr[0]
-
-                # for i in (len(ouArr)-3):
-                #     getdn = ouArr[i]+','
-                # print(getdn)
+                getCurrentFolder = str(obj).split(',')[0]
 
                 current_ous['dn'] = getdn
-                current_ous['name'] = str(getCurrentFolder)
+                current_ous['name'] = str(getCurrentFolder).split("OU=",1)[1]
                 all_ous.append(current_ous)
         
         return jsonify(all_ous)
