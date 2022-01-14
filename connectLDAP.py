@@ -1,3 +1,4 @@
+from inspect import currentframe
 from ldap3 import *
 import os, json
 from flask import Flask, request, jsonify
@@ -154,22 +155,11 @@ def getFolderList():
     return jsonify(allFolder)
 
 
-results = list()
-def get_child_ou_dns(dn, connection):
-    elements = connection.extend.standard.paged_search(
-        search_base=dn,
-        search_filter='(objectCategory=organizationalUnit)',
-        search_scope=LEVEL,
-        paged_size=100)
-    for element in elements:
-        if 'dn' in element:
-            if element['dn'] != dn:
-                if 'dn' in element:
-                    results.append(element['dn'])
-                    get_child_ou_dns(element['dn'], connection)
+
+
                     
 
-
+results = list()
 @app.route('/getAllFolder')
 def getAllFolder():
     all_ous = []
@@ -190,7 +180,10 @@ def getAllFolder():
 
 
     try:
+        results.clear()
+        print("BF GET FOLDER: ", results)
         get_child_ou_dns(base_dn, c)
+        print("AF GET FOLDER: ", results)
         if results:
             for obj in results:
                 current_ous = dict()
@@ -209,7 +202,19 @@ def getAllFolder():
 
     c.unbind()
     
-    
+def get_child_ou_dns(dn, connection):
+    elements = connection.extend.standard.paged_search(
+        search_base=dn,
+        search_filter='(objectCategory=organizationalUnit)',
+        search_scope=LEVEL,
+        paged_size=100)
+    for element in elements:
+        if 'dn' in element:
+            if element['dn'] != dn:
+                if 'dn' in element:
+                    results.append(element['dn'])
+                    get_child_ou_dns(element['dn'], connection)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
