@@ -1,4 +1,3 @@
-from inspect import currentframe
 from ldap3 import *
 import os, json
 from flask import Flask, request, jsonify
