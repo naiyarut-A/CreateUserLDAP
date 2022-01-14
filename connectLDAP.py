@@ -152,7 +152,7 @@ def getFolderList():
 
 
     return jsonify(allFolder)
-    # c.unbind()
+
 
 results = list()
 def get_child_ou_dns(dn, connection):
@@ -162,15 +162,12 @@ def get_child_ou_dns(dn, connection):
         search_scope=LEVEL,
         paged_size=100)
     for element in elements:
-        # print("CHECK ELEMENT: ", element)
         if 'dn' in element:
             if element['dn'] != dn:
                 if 'dn' in element:
                     results.append(element['dn'])
                     get_child_ou_dns(element['dn'], connection)
-                    # print("CHECK REULT: ", results)
                     
-    # return(results)
 
 
 @app.route('/getAllFolder')
@@ -192,24 +189,11 @@ def getAllFolder():
         exit(c.result)
 
 
-    # print(get_child_ou_dns(base_dn,c))
-    # try:
-    #     get_child_ou_dns(base_dn, c)
-    #     convertToArr = np.array(results)
-    #     return jsonify(convertToArr)
-
-
-    # except Exception as e:
-    #     # If the LDAP bind failed for reasons such as authentication failure.
-    #     print('Fail to get folder: ', e) 
-
-    # c.unbind()
     try:
         get_child_ou_dns(base_dn, c)
         if results:
             for obj in results:
                 current_ous = dict()
-                # ouArr = str(obj).split(',')
                 getdn = str(obj).split(",OU=test,DC=ictc,DC=ops",1)[0]
                 getCurrentFolder = str(obj).split(',')[0]
 
@@ -221,38 +205,11 @@ def getAllFolder():
 
     except Exception as e:
         print('Fail to get folder: ', e)
-        # return jsonify({'Fail to get folder'}) 
+
 
     c.unbind()
     
     
-    # my_json_string = json.dumps({'results': results})
-    # convertToArr = np.array(results)
-    
-
-    # all_ous = get_child_ou_dns(base_dn,c)
-    # print("GET TOTAL RESULT -> ",results)
-    # return jsonify(all_ous)
-
-    # ou_dn_process_status['OU=test,DC=ictc,DC=ops'] = {'need_to_process':True}
-    # has_searches_to_process = True
-    # while has_searches_to_process:
-    #     ou_dn_process_status_keys = list(ou_dn_process_status.keys())
-    #     for dn in ou_dn_process_status_keys:
-    #         if ou_dn_process_status[dn]['need_to_process']:
-    #             all_ous[dn] = get_child_ou_dns(base_dn, c)
-
-    #             print(all_ous[dn])
-
-    #             ou_dn_process_status[dn]['need_to_process'] = False
-    #             for child_ou_dn in all_ous[dn]:
-    #                 if not child_ou_dn in ou_dn_process_status:
-    #                     ou_dn_process_status[child_ou_dn] = {'need_to_process':True}
-    #     has_searches_to_process = False
-    #     for dn in ou_dn_process_status:
-    #         if ou_dn_process_status[dn]['need_to_process']:
-    #             has_searches_to_process = True
-    # return all_ous
 
 if __name__ == '__main__':
     app.run(debug=True)
