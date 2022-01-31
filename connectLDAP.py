@@ -2,8 +2,56 @@ from ldap3 import *
 import os, json
 from flask import Flask, request, jsonify
 from datetime import datetime, timezone, timedelta
+import string
+import random
 
 app = Flask(__name__)
+
+
+
+def generate_random_password():
+    ## characters to generate password from
+    alphabets_lower = list(string.ascii_lowercase)
+    alphabets_upper = list(string.ascii_uppercase)
+    digits = list(string.digits)
+    special_characters = list("!@#$%^&*()")
+    # characters = list(string.ascii_uppercase + string.digits + string.ascii_lowercase + "!@&*")
+
+
+    ## length of password from the user
+    alphabets_count = 3
+    digits_count = 3
+    special_characters_count = 2
+
+
+    # ## shuffling the characters
+    # random.shuffle(characters)
+    
+    ## picking random characters from the list
+    password = []
+    ## picking random alphabets upper
+    for _ in range(alphabets_count):
+        password.append(random.choice(alphabets_upper))
+    
+    for _ in range(digits_count):
+        password.append(random.choice(digits))
+
+    ## picking random alphabets lower
+    for _ in range(alphabets_count):
+        password.append(random.choice(alphabets_lower))
+
+    ## picking random alphabets
+    for _ in range(special_characters_count):
+        password.append(random.choice(special_characters))
+
+    ## shuffling the resultant password
+    # random.shuffle(password)
+
+    ## converting the list to string
+    return "".join(password)
+
+
+
 
 @app.route('/createuser', methods=['POST'])
 def addUser():
@@ -17,7 +65,7 @@ def addUser():
     mail = request.json['mail']
     wWWHomePage = request.json['homepage']
     userlogon = request.json['userlogon']
-    userpswd = request.json['userpwd']
+    # userpswd = request.json['userpwd']
     sub_dir = request.json['subOU'] # OU order: layer inner -> outer
 
 
@@ -66,7 +114,9 @@ def addUser():
         # Part: Set password, UAC and write log file
         if c.result['description']=='success':
             # set password - must be done before enabling user
-            # you must connect with SSL to set the password 
+            # you must connect with SSL to set the password
+            userpswd = generate_random_password()
+
             c.extend.microsoft.modify_password(userdn, userpswd)
             
             searchParameters = { 'search_base': userdn, 
