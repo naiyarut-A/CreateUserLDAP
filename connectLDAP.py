@@ -98,7 +98,6 @@ def addUser():
         #     userlogon = ""
         
         userlogon = check_exist_user(base_dn, c, firstname, lastname, 0)
-        print("CHECK USERNAME RESULT = ", userlogon)
 
         # create user
         attribute = {
@@ -114,12 +113,8 @@ def addUser():
             'sAMAccountName': userlogon,
             'userPrincipalName': "{}@{}".format(userlogon, 'ictc.ops')
         }
-
-        print(attribute)
         
-        print("CHECK BF ADD")
         c.add(userdn, attributes=attribute)
-        print("CHECK AF ADD")
 
 
         # Part: Set password, UAC and write log file
@@ -193,17 +188,13 @@ def addUser():
     c.unbind()
 
 def check_exist_user(dn, connection, firstname, lastname, index):
-    print(index)
     usernamelogon = str(firstname+lastname[0:index+1]).lower()
-    print(usernamelogon)
     elements = connection.search(dn,'(&(objectclass=user)(sAMAccountName='+usernamelogon+'))')
     # print("############################")
     # print(elements)
     if elements:
-        print(elements)
         return check_exist_user(dn, connection, firstname, lastname, index+1)
     else:
-        print(usernamelogon)
         return usernamelogon
         # userNameLogon = str(usernamelogon)
     # for element in elements:
