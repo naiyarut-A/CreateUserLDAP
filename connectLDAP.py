@@ -32,13 +32,13 @@ def generate_random_password():
     ## picking random alphabets upper
     for _ in range(alphabets_count):
         password.append(random.choice(alphabets_upper))
-    
-    for _ in range(digits_count):
-        password.append(random.choice(digits))
 
     ## picking random alphabets lower
     for _ in range(alphabets_count):
         password.append(random.choice(alphabets_lower))
+
+    for _ in range(digits_count):
+        password.append(random.choice(digits))
 
     ## picking random alphabets
     for _ in range(special_characters_count):
@@ -52,7 +52,7 @@ def generate_random_password():
 
 
 
-
+# userNameLogon = ""
 @app.route('/createuser', methods=['POST'])
 def addUser():
     # Request data
@@ -64,7 +64,7 @@ def addUser():
     telephoneNumber = request.json['tel']
     mail = request.json['mail']
     wWWHomePage = request.json['homepage']
-    userlogon = request.json['userlogon']
+    # userlogon = request.json['userlogon']
     # userpswd = request.json['userpwd']
     sub_dir = request.json['subOU'] # OU order: layer inner -> outer
 
@@ -74,15 +74,15 @@ def addUser():
     loginun = 'ICTC\Administrator'
     loginpw = 'vd8ntm9RQgDA'
 
-    base_dn = ',OU=test,DC=ictc,DC=ops'
+    base_dn = 'OU=test,DC=ictc,DC=ops'
 
     # Set userdn
-    userdn = 'CN='+displayname+base_dn
+    userdn = 'CN='+displayname+','+base_dn
     if sub_dir == '':
-        userdn = 'CN='+displayname+base_dn
+        userdn = 'CN='+displayname+','+base_dn
     else:
         # userdn = 'CN='+displayname+',OU='+sub_dir+base_dn
-        userdn = 'CN='+displayname+','+sub_dir+base_dn
+        userdn = 'CN='+displayname+','+sub_dir+','+base_dn
 
 
     # connect - specifying port 636 is only for reference as it's inferred
@@ -93,6 +93,13 @@ def addUser():
         exit(c.result)
 
     try:
+        # userlogon = ""
+        # if check_exist_user():
+        #     userlogon = ""
+        
+        userlogon = check_exist_user(base_dn, c, firstname, lastname, 0)
+        print("CHECK USERNAME RESULT = ", userlogon)
+
         # create user
         attribute = {
             'objectClass': ['organizationalPerson', 'person', 'top', 'user'],
@@ -107,8 +114,12 @@ def addUser():
             'sAMAccountName': userlogon,
             'userPrincipalName': "{}@{}".format(userlogon, 'ictc.ops')
         }
+
+        print(attribute)
         
+        print("CHECK BF ADD")
         c.add(userdn, attributes=attribute)
+        print("CHECK AF ADD")
 
 
         # Part: Set password, UAC and write log file
@@ -181,6 +192,28 @@ def addUser():
 
     c.unbind()
 
+def check_exist_user(dn, connection, firstname, lastname, index):
+    print(index)
+    usernamelogon = str(firstname+lastname[0:index+1]).lower()
+    print(usernamelogon)
+    elements = connection.search(dn,'(&(objectclass=user)(sAMAccountName='+usernamelogon+'))')
+    # print("############################")
+    # print(elements)
+    if elements:
+        print(elements)
+        return check_exist_user(dn, connection, firstname, lastname, index+1)
+    else:
+        print(usernamelogon)
+        return usernamelogon
+        # userNameLogon = str(usernamelogon)
+    # for element in elements:
+    #     print(element)
+        # if 'dn' in element:
+        #     if element['dn'] != dn:
+        #         if 'dn' in element:
+        #             results.append(element['dn'])
+        #             get_child_ou_dns(element['dn'], connection)
+
 
 @app.route('/folderlist')
 def getFolderList():
@@ -230,9 +263,7 @@ def getAllFolder():
 
     try:
         results.clear()
-        print("BF GET FOLDER: ", results)
         get_child_ou_dns(base_dn, c)
-        print("AF GET FOLDER: ", results)
         if results:
             for obj in results:
                 current_ous = dict()
