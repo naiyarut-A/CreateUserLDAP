@@ -81,7 +81,6 @@ def addUser():
     if sub_dir == '':
         userdn = 'CN='+displayname+','+base_dn
     else:
-        # userdn = 'CN='+displayname+',OU='+sub_dir+base_dn
         userdn = 'CN='+displayname+','+sub_dir+','+base_dn
 
 
@@ -93,9 +92,6 @@ def addUser():
         exit(c.result)
 
     try:
-        # userlogon = ""
-        # if check_exist_user():
-        #     userlogon = ""
         
         userlogon = check_exist_user(base_dn, c, firstname, lastname, 0)
 
@@ -190,20 +186,12 @@ def addUser():
 def check_exist_user(dn, connection, firstname, lastname, index):
     usernamelogon = str(firstname+lastname[0:index+1]).lower()
     elements = connection.search(dn,'(&(objectclass=user)(sAMAccountName='+usernamelogon+'))')
-    # print("############################")
-    # print(elements)
+
     if elements:
         return check_exist_user(dn, connection, firstname, lastname, index+1)
     else:
         return usernamelogon
-        # userNameLogon = str(usernamelogon)
-    # for element in elements:
-    #     print(element)
-        # if 'dn' in element:
-        #     if element['dn'] != dn:
-        #         if 'dn' in element:
-        #             results.append(element['dn'])
-        #             get_child_ou_dns(element['dn'], connection)
+
 
 
 @app.route('/folderlist')
