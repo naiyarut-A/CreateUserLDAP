@@ -5,9 +5,22 @@ from datetime import datetime, timezone, timedelta
 import string
 import random
 
+import email #เรียกใช้งาน mudule email
+import smtplib #เรียกใช้งาน module smtplib
+
+from flask_mail import Mail, Message
+
 app = Flask(__name__)
+mail = Mail(app) # instantiate the mail class
 
-
+# configuration of mail
+app.config['MAIL_SERVER']='webmail.moc.go.th'
+app.config['MAIL_PORT'] = 465
+app.config['MAIL_USERNAME'] = 'naiyaruta@moc.go.th'
+app.config['MAIL_PASSWORD'] = 'Na@11*07'
+app.config['MAIL_USE_TLS'] = False
+app.config['MAIL_USE_SSL'] = True
+mail = Mail(app)
 
 def generate_random_password():
     ## characters to generate password from
@@ -134,6 +147,9 @@ def addUser():
                     c.modify(userdn, {'userAccountControl': [('MODIFY_REPLACE', 512)]})
 
 
+                    send_data_to_email()
+                    # send_email("mike@example.org", "output/python101.pdf")
+
                     # Write log file before return success
                     try:
                         # Time zone in Thailand UTC+7
@@ -157,7 +173,6 @@ def addUser():
                                 # write to file
                                 file.write(titleFiled + "\n") # in append mode writes will always go to the end, so no need to seek() here
                                 file.write(content)
-
 
                          # return response api case success
                         return jsonify({'result' : True,'errorMessage' : ''})
@@ -191,6 +206,107 @@ def check_exist_user(dn, connection, firstname, lastname, index):
         return check_exist_user(dn, connection, firstname, lastname, index+1)
     else:
         return usernamelogon
+
+# import os
+# import smtplib
+
+# from email import encoders
+# from email.mime.text import MIMEText
+# from email.mime.base import MIMEBase
+# from email.mime.multipart import MIMEMultipart
+# from email.utils import formatdate
+
+# def send_email(email, pdf):
+#     """
+#     Send an email out
+#     """
+#     header0 = 'Content-Disposition'
+#     header1 ='attachment; filename="%s"' % os.path.basename(pdf)
+#     header = header0, header1
+    
+#     host = "webmail.moc.go.th"
+#     server = smtplib.SMTP(host)
+#     subject = "Test email from Python"
+#     to = email
+#     from_addr = "test@pylib.com"
+#     body_text = "Here is the Alpha copy of Python 101, Part I"
+    
+#     # create the message
+#     msg = MIMEMultipart()
+#     msg["From"] = from_addr
+#     msg["Subject"] = subject
+#     msg["Date"] = formatdate(localtime=True)
+#     msg["To"] = email
+    
+#     msg.attach( MIMEText(body_text) )
+    
+#     attachment = MIMEBase('application', "octet-stream")
+#     try:
+#         with open(pdf, "rb") as fh:
+#             data = fh.read()
+#         attachment.set_payload( data )
+#         encoders.encode_base64(attachment)
+#         attachment.add_header(*header)
+#         msg.attach(attachment)
+#     except IOError:
+#         # msg = "Error opening attachment file %s" % file_to_attach
+#         print(msg)
+        
+#     server.sendmail(from_addr, to, msg.as_string())
+
+def send_data_to_email():
+    msg = Message(
+                'Hello',
+                sender ='naiyaruta@moc.go.th',
+                recipients = ['nat-naiyarat@hotmail.com']
+               )
+    msg.body = 'Hello Flask message sent from Flask-Mail'
+    mail.send(msg)
+    print("SEND MAIL SUCCESS")
+
+
+#     print("CHECK DEBUG GET In FUNCTIOn")
+#     # กำหนดตัวแปรชื่อผู้ใช้ และ รหัสผ่าน ตามบัญชีผู้ใช้
+#     username = 'naiyaruta@moc.go.th'
+#     password = 'Na@11*07'
+#     # กำหนดตัวแปรอีเมลผู้ส่ง และ ผู้รับ
+#     sender = 'naiyaruta@moc.go.th'
+#     recipient = 'nat-naiyarat@hotmail.com'
+
+#     # เนื้อหาของอีเมล
+#     body = """
+#     การส่งเมลล์ผ่าน SMTP ของ Mailgun ด้วย Python
+#     """
+
+#     mail = body
+
+#     sender    = "naiyaruta@moc.go.th"
+#     receivers = ["nat-naiyarat@hotmail.com"]
+
+
+#     try:
+#         headers = f"""From: {sender}
+#         To: {", ".join(receivers)}
+#         Subject: Hello
+#         """
+
+#         message = headers + "\n" + """
+#         Hello
+#         """
+
+#         # ตั้งค่าเซิร์ฟเวอร์ด้วยชื่อโฮส และ พอร์ท
+#         server = smtplib.SMTP('webmail.moc.go.th', 587)
+#         #syntax ของ smtplib.SMTP( [host [, port [, local_hostname]]] )
+#         server.login(username, password)
+#         server.sendmail(sender, recipient, message)
+#         server.quit()
+#         print("Successfully sent email")
+
+        
+        
+#     except Exception as e:
+#         print ("Error: unable to send email")
+    
 
 
 
