@@ -18,13 +18,14 @@ app.config['MAIL_PASSWORD'] = 'Na@11*07'
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 mail = Mail(app)
+app.config['DEBUG'] = True
 
 def generate_random_password():
     ## characters to generate password from
     alphabets_lower = list(string.ascii_lowercase)
     alphabets_upper = list(string.ascii_uppercase)
     digits = list(string.digits)
-    special_characters = list("!@#$%^&*()")
+    special_characters = list("!@&*")
     # characters = list(string.ascii_uppercase + string.digits + string.ascii_lowercase + "!@&*")
 
 
@@ -99,12 +100,8 @@ def addUser():
     if not c.bind():
         exit(c.result)
 
-    try:
-        
-        userlogon = check_exist_user(base_dn, c, firstname, lastname, 0)
-
-        # create user
-        attribute = {
+    userlogon = check_exist_user(base_dn, c, firstname, lastname, 0)
+    attribute = {
             'objectClass': ['organizationalPerson', 'person', 'top', 'user'],
             'givenname': firstname,
             'sn': lastname,
@@ -116,17 +113,17 @@ def addUser():
             'wWWHomePage': wWWHomePage,
             'sAMAccountName': userlogon,
             'userPrincipalName': "{}@{}".format(userlogon, 'ictc.ops')
-        }
-        
-        c.add(userdn, attributes=attribute)
+    }
 
+    try:
+        # create user
+        c.add(userdn, attributes=attribute)
 
         # Part: Set password, UAC and write log file
         if c.result['description']=='success':
             # set password - must be done before enabling user
             # you must connect with SSL to set the password
             userpswd = generate_random_password()
-
             c.extend.microsoft.modify_password(userdn, userpswd)
             
             searchParameters = { 'search_base': userdn, 
@@ -164,13 +161,19 @@ def addUser():
                                 file.write(titleFiled + "\n") # in append mode writes will always go to the end, so no need to seek() here
                                 file.write(content)
 
-                        send_data_to_email(attribute, True)
+                        send_data_to_email(attribute)
                          # return response api case success
                         return jsonify({'result' : True,'errorMessage' : ''})
                     except Exception as err:
                         c.delete(userdn)
                         # send_data_to_email(attribute, False)
-                        send_result_fail_to_email()
+                        send_result_fail_to_email(firstname, 
+                                                lastname, 
+                                                displayname, 
+                                                description, 
+                                                physicalDeliveryOfficeName, 
+                                                telephoneNumber, mail,
+                                                wWWHomePage, sub_dir)
                         return jsonify({'result' : False, 'errorMessage' : 'Fail to write log file'})
                     
                 else:
@@ -178,21 +181,39 @@ def addUser():
                     c.delete(userdn)
                     # send_data_to_email(attribute, False)
                     print("CHECK DEBUG 1")
-                    send_result_fail_to_email()
+                    send_result_fail_to_email(firstname, 
+                                            lastname, 
+                                            displayname, 
+                                            description, 
+                                            physicalDeliveryOfficeName, 
+                                            telephoneNumber, mail,
+                                            wWWHomePage, sub_dir)
                     return jsonify({'result' : False,'errorMessage' : 'Fail to add user because condition set password not valid that cannot set password'})
 
         else:
             # send_data_to_email(attribute, False)
             # print(c.result)
             # print("CHECK DEBUG 2")
-            send_result_fail_to_email()
+            send_result_fail_to_email(firstname, 
+                                    lastname, 
+                                    displayname, 
+                                    description, 
+                                    physicalDeliveryOfficeName, 
+                                    telephoneNumber, mail,
+                                    wWWHomePage, sub_dir)
             return jsonify({'result' : False, 'errorMessage' : c.result['description']})
 
     
     except Exception as e:
         # If the LDAP bind failed for reasons such as authentication failure.
         print('Fail to add user: ', e)
-        send_result_fail_to_email()
+        send_result_fail_to_email(firstname, 
+                                lastname, 
+                                displayname, 
+                                description, 
+                                physicalDeliveryOfficeName, 
+                                telephoneNumber, mail,
+                                wWWHomePage, sub_dir)
         return jsonify({'result' : False, 'errorMessage' : e})
     
     
@@ -209,43 +230,43 @@ def check_exist_user(dn, connection, firstname, lastname, index):
         return usernamelogon
 
 
-def send_data_to_email(data, isAddUserSuccess):
-    print("CHECK DEBUG IN FUNCTION")
+def send_data_to_email(data):
     msg_success = Message(
-                'Hello',
+                'แจ้งชื่อผู้ใช้งานและรหัสผ่าน',
                 sender ='naiyaruta@moc.go.th',
-                recipients = ['nat-naiyarat@hotmail.com',str(data['mail'])]
+                recipients = ['nat-naiyarat@hotmail.com','naiyaruta@moc.go.th']
                )
-    msg_success.body = """
-    Hello Flask message sent from Flask-Mail
-    """+'\n'+str(data['sAMAccountName'])+'#'+str(data['userPrincipalName'])+'#'+str(data['userdn'])+'#'+str(data['userpswd'])
-
-    msg_fail = Message(
-                'Fail to Add user',
-                sender ='naiyaruta@moc.go.th',
-                recipients = ['nat-naiyarat@hotmail.com']
-               )
-    msg_fail.body = """
-    Fail to Add user to Active Directory
-    """+'\n'+str(data['sAMAccountName'])+'#'+str(data['userPrincipalName'])+'#'+str(data['userpswd'])
-
-    if isAddUserSuccess:
-        mail.send(msg_success)
-        return "Send mail success: case add user success"
-    else:
-        mail.send(msg_fail)
-        return "Send mail success: case add user fail"
+    with app.open_resource("log/log_2022-02-08.txt") as fp:  
+        msg_success.attach("log_2022-02-08.txt","text/plain",fp.read())
+    # msg_success.body = """
+    # Hello Flask message sent from Flask-Mail
+    # """+'\n'+str(data['sAMAccountName'])+'#'+str(data['userPrincipalName'])+'#'+str(data['userdn'])+'#'+str(data['userpswd'])
+    msg_success.html = """<h2>แจ้งชื่อผู้ใช้งานและรหัสผ่าน</h2>\n
+                    <p>&nbspตามที่ท่านมีความประสงค์ใช้งานระบบสารสนเทศ สำนักงานปลัดกระทรวงพาณิชย์นั้น<br> 
+                    บัดนี้ได้ดำเนินการเรียบร้อยแล้วตามเอกสารแนบ<br> หากพบปัญหาหรือต้องการสอบถามเพิ่มเติม &nbsp ติดต่อ ...  โดยใช้ชื่อผู้ใช้งานและรหัสผ่านตามด้านล่าง</p>
+                    <p>ชื่อ-สกุล: """+str(data['displayname'])+"""<br>
+                    ชื่อผู้ใช้งาน: """+str(data['sAMAccountName'])+"""<br>
+                    รหัสผ่าน: """+str(data['userpswd'])+"""<br>
+                    e-mail account: """+str(data['userPrincipalName'])+"""</p>"""
+    mail.send(msg_success)
 
 
-def send_result_fail_to_email():
+def send_result_fail_to_email(firstname, lastname, displayname, description, officeName, tel, email, homepage, subDir):
     msg = Message(
                 'Fail to add user',
                 sender ='naiyaruta@moc.go.th',
                 recipients = ['nat-naiyarat@hotmail.com']
                )
-    msg.body = """
-    Fail to add user
-    """
+    msg.html = """<h2>เพิ่ม user ไม่สำเร็จ</h2>\n
+                    <p>firstname: """+firstname+"""<br>
+                    lastname: """+lastname+"""<br>
+                    displayname: """+displayname+"""<br>
+                    description: """+description+"""<br>
+                    physicalDeliveryOfficeName: """+officeName+"""<br>
+                    telephoneNumber: """+tel+"""<br>
+                    email: """+email+"""<br>
+                    wWWHomePage: """+homepage+"""<br>
+                    subDir: """+subDir+"""</p>"""
     mail.send(msg)
   
 
@@ -264,13 +285,9 @@ def getFolderList():
                 for i in data['data']:
                     i = [x for x in i if "_comment:" not in x] # filter comment from list
                     currentFolder = currentFolder+i # Concat list in 'data' key on current file json(concat in own file)
-
         allFolder = allFolder+currentFolder # Concat together list from each file(concat between file)
 
-
     return jsonify(allFolder)
-
-
 
 
                     
@@ -294,7 +311,6 @@ def getAllFolder():
     if not c.bind():
         exit(c.result)
 
-
     try:
         results.clear()
         get_child_ou_dns(base_dn, c)
@@ -313,8 +329,8 @@ def getAllFolder():
     except Exception as e:
         print('Fail to get folder: ', e)
 
-
     c.unbind()
+
     
 def get_child_ou_dns(dn, connection):
     elements = connection.extend.standard.paged_search(
