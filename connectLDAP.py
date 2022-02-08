@@ -8,7 +8,6 @@ import random
 from flask_mail import Mail, Message
 
 app = Flask(__name__)
-mail = Mail(app) # instantiate the mail class
 
 # configuration of mail
 app.config['MAIL_SERVER']='webmail.moc.go.th'
@@ -18,7 +17,7 @@ app.config['MAIL_PASSWORD'] = 'Na@11*07'
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 mail = Mail(app)
-app.config['DEBUG'] = True
+
 
 def generate_random_password():
     ## characters to generate password from
@@ -73,8 +72,6 @@ def addUser():
     telephoneNumber = request.json['tel']
     mail = request.json['mail']
     wWWHomePage = request.json['homepage']
-    # userlogon = request.json['userlogon']
-    # userpswd = request.json['userpwd']
     sub_dir = request.json['subOU'] # OU order: layer inner -> outer
 
 
@@ -82,7 +79,6 @@ def addUser():
     domain = 'OPS-AD-TEST.ictc.ops'
     loginun = 'ICTC\Administrator'
     loginpw = 'vd8ntm9RQgDA'
-
     base_dn = 'OU=test,DC=ictc,DC=ops'
 
     # Set userdn
@@ -191,9 +187,6 @@ def addUser():
                     return jsonify({'result' : False,'errorMessage' : 'Fail to add user because condition set password not valid that cannot set password'})
 
         else:
-            # send_data_to_email(attribute, False)
-            # print(c.result)
-            # print("CHECK DEBUG 2")
             send_result_fail_to_email(firstname, 
                                     lastname, 
                                     displayname, 
@@ -238,9 +231,7 @@ def send_data_to_email(data):
                )
     with app.open_resource("log/log_2022-02-08.txt") as fp:  
         msg_success.attach("log_2022-02-08.txt","text/plain",fp.read())
-    # msg_success.body = """
-    # Hello Flask message sent from Flask-Mail
-    # """+'\n'+str(data['sAMAccountName'])+'#'+str(data['userPrincipalName'])+'#'+str(data['userdn'])+'#'+str(data['userpswd'])
+    
     msg_success.html = """<h2>แจ้งชื่อผู้ใช้งานและรหัสผ่าน</h2>\n
                     <p>&nbspตามที่ท่านมีความประสงค์ใช้งานระบบสารสนเทศ สำนักงานปลัดกระทรวงพาณิชย์นั้น<br> 
                     บัดนี้ได้ดำเนินการเรียบร้อยแล้วตามเอกสารแนบ<br> หากพบปัญหาหรือต้องการสอบถามเพิ่มเติม &nbsp ติดต่อ ...  โดยใช้ชื่อผู้ใช้งานและรหัสผ่านตามด้านล่าง</p>
@@ -268,7 +259,9 @@ def send_result_fail_to_email(firstname, lastname, displayname, description, off
                     wWWHomePage: """+homepage+"""<br>
                     subDir: """+subDir+"""</p>"""
     mail.send(msg)
-  
+
+
+
 
 @app.route('/folderlist')
 def getFolderList():
