@@ -5,9 +5,6 @@ from datetime import datetime, timezone, timedelta
 import string
 import random
 
-import email #เรียกใช้งาน mudule email
-import smtplib #เรียกใช้งาน module smtplib
-
 from flask_mail import Mail, Message
 
 app = Flask(__name__)
@@ -102,92 +99,6 @@ def addUser():
     if not c.bind():
         exit(c.result)
 
-    # userlogon = check_exist_user(base_dn, c, firstname, lastname, 0)
-    # # create user
-    # attribute = {
-    #     'objectClass': ['organizationalPerson', 'person', 'top', 'user'],
-    #     'givenname': firstname,
-    #     'sn': lastname,
-    #     'displayname': "{} {}".format(firstname, lastname),
-    #     'description': description,
-    #     'physicalDeliveryOfficeName': physicalDeliveryOfficeName,
-    #     'telephoneNumber': telephoneNumber,
-    #     'mail': mail,
-    #     'wWWHomePage': wWWHomePage,
-    #     'sAMAccountName': userlogon,
-    #     'userPrincipalName': "{}@{}".format(userlogon, 'ictc.ops')
-    # }
-    
-    # c.add(userdn, attributes=attribute)
-
-
-    # # Part: Set password, UAC and write log file
-    # if c.result['description']=='success':
-    #     # set password - must be done before enabling user
-    #     # you must connect with SSL to set the password
-    #     userpswd = generate_random_password()
-
-    #     c.extend.microsoft.modify_password(userdn, userpswd)
-        
-    #     searchParameters = { 'search_base': userdn, 
-    #         'search_filter': '(objectClass=Person)',
-    #         'attributes': ['cn', 'givenName','pwdLastSet'],
-    #         'paged_size': 100 }
-    #     c.search(**searchParameters)
-    #     for entry in c.entries:
-    #         # Check password already is set
-    #         if str(entry['pwdLastSet']) != '1601-01-01 00:00:00+00:00':
-    #             # when password is set then enable user (after password set)
-    #             c.modify(userdn, {'userAccountControl': [('MODIFY_REPLACE', 512)]})
-
-    #             # Write log file before return success
-    #             try:
-    #                 # Time zone in Thailand UTC+7
-    #                 tz = timezone(timedelta(hours = 7))
-    #                 # Create a date object with given timezone
-    #                 date = datetime.now(tz=tz)
-    #                 timeStamp = date.isoformat(sep = " ")
-    #                 attribute['userpswd'] = userpswd
-    #                 attribute['userdn'] = userdn
-    #                 dateArr = str(timeStamp).split()
-    #                 getDate = dateArr[0]
-
-    #                 titleFiled = '//Fields: timeStamp#objectClass#givenname#sn#displayname#description#physicalDeliveryOfficeName#telephoneNumber#mail#wWWHomePage#sAMAccountName#userPrincipalName#userdn#userpswd'
-    #                 with open("log/log_"+getDate+".txt", "a+", encoding="utf8") as file:
-    #                     file.seek(0) # set position to start of file
-    #                     lines = file.read().splitlines() # now we won't have those newlines
-    #                     content = timeStamp+'#'+str(attribute['objectClass'])+'#'+str(attribute['givenname'])+'#'+str(attribute['sn'])+'#'+str(attribute['displayname'])+'#'+str(attribute['description'])+'#'+str(attribute['physicalDeliveryOfficeName'])+'#'+str(attribute['telephoneNumber'])+'#'+str(attribute['mail'])+'#'+str(attribute['wWWHomePage'])+'#'+str(attribute['sAMAccountName'])+'#'+str(attribute['userPrincipalName'])+'#'+str(attribute['userdn'])+'#'+str(attribute['userpswd'])+'\n'
-    #                     if titleFiled in lines:
-    #                         file.write(content)
-    #                     else:
-    #                         # write to file
-    #                         file.write(titleFiled + "\n") # in append mode writes will always go to the end, so no need to seek() here
-    #                         file.write(content)
-
-    #                 send_data_to_email(attribute, True)
-    #                     # return response api case success
-    #                 return jsonify({'result' : True,'errorMessage' : ''})
-    #             except Exception as err:
-    #                 c.delete(userdn)
-    #                 send_result_fail_to_email()
-    #                 return jsonify({'result' : False, 'errorMessage' : 'Fail to write log file'})
-                
-    #         else:
-    #             # paasword can not set so remove user that just add in AD and return response api case error
-    #             c.delete(userdn)
-    #             send_result_fail_to_email()
-    #             print("CHECK DEBUG 1")
-    #             return jsonify({'result' : False,'errorMessage' : 'Fail to add user because condition set password not valid that cannot set password'})
-
-    # else:
-    #     send_result_fail_to_email()
-    #     # print(c.result)
-    #     # print("CHECK DEBUG 2")
-    #     return jsonify({'result' : False, 'errorMessage' : c.result['description']})
-
-    # c.unbind()
-
-    
     try:
         
         userlogon = check_exist_user(base_dn, c, firstname, lastname, 0)
@@ -325,9 +236,6 @@ def send_data_to_email(data, isAddUserSuccess):
         mail.send(msg_fail)
         return "Send mail success: case add user fail"
 
-    # return
-    
-    # print("SEND MAIL SUCCESS")
 
 def send_result_fail_to_email():
     msg = Message(
