@@ -64,8 +64,6 @@ def generate_random_password():
     return "".join(password)
 
 
-
-# userNameLogon = ""
 @app.route('/createuser', methods=['POST'])
 def addUser():
     # Request data
@@ -142,13 +140,8 @@ def addUser():
             for entry in c.entries:
                 # Check password already is set
                 if str(entry['pwdLastSet']) != '1601-01-01 00:00:00+00:00':
-
                     # when password is set then enable user (after password set)
                     c.modify(userdn, {'userAccountControl': [('MODIFY_REPLACE', 512)]})
-
-
-                    send_data_to_email()
-                    # send_email("mike@example.org", "output/python101.pdf")
 
                     # Write log file before return success
                     try:
@@ -174,21 +167,26 @@ def addUser():
                                 file.write(titleFiled + "\n") # in append mode writes will always go to the end, so no need to seek() here
                                 file.write(content)
 
+                        send_data_to_email(attribute, True)
                          # return response api case success
                         return jsonify({'result' : True,'errorMessage' : ''})
-
                     except Exception as err:
                         c.delete(userdn)
+                        # send_data_to_email(attribute, False)
                         return jsonify({'result' : False, 'errorMessage' : 'Fail to write log file'})
                     
                 else:
                     # paasword can not set so remove user that just add in AD and return response api case error
                     c.delete(userdn)
+                    # send_data_to_email(attribute, False)
+                    print("CHECK DEBUG 1")
                     return jsonify({'result' : False,'errorMessage' : 'Fail to add user because condition set password not valid that cannot set password'})
 
-
         else:
-            print(c.result)
+            c.delete(userdn)
+            # send_data_to_email(attribute, False)
+            # print(c.result)
+            # print("CHECK DEBUG 2")
             return jsonify({'result' : False, 'errorMessage' : c.result['description']})
 
     
@@ -207,107 +205,38 @@ def check_exist_user(dn, connection, firstname, lastname, index):
     else:
         return usernamelogon
 
-# import os
-# import smtplib
 
-# from email import encoders
-# from email.mime.text import MIMEText
-# from email.mime.base import MIMEBase
-# from email.mime.multipart import MIMEMultipart
-# from email.utils import formatdate
-
-# def send_email(email, pdf):
-#     """
-#     Send an email out
-#     """
-#     header0 = 'Content-Disposition'
-#     header1 ='attachment; filename="%s"' % os.path.basename(pdf)
-#     header = header0, header1
-    
-#     host = "webmail.moc.go.th"
-#     server = smtplib.SMTP(host)
-#     subject = "Test email from Python"
-#     to = email
-#     from_addr = "test@pylib.com"
-#     body_text = "Here is the Alpha copy of Python 101, Part I"
-    
-#     # create the message
-#     msg = MIMEMultipart()
-#     msg["From"] = from_addr
-#     msg["Subject"] = subject
-#     msg["Date"] = formatdate(localtime=True)
-#     msg["To"] = email
-    
-#     msg.attach( MIMEText(body_text) )
-    
-#     attachment = MIMEBase('application', "octet-stream")
-#     try:
-#         with open(pdf, "rb") as fh:
-#             data = fh.read()
-#         attachment.set_payload( data )
-#         encoders.encode_base64(attachment)
-#         attachment.add_header(*header)
-#         msg.attach(attachment)
-#     except IOError:
-#         # msg = "Error opening attachment file %s" % file_to_attach
-#         print(msg)
-        
-#     server.sendmail(from_addr, to, msg.as_string())
-
-def send_data_to_email():
-    msg = Message(
+def send_data_to_email(data, isAddUserSuccess):
+    print("CHECK DEBUG IN FUNCTION")
+    print(data)
+    msg_success = Message(
                 'Hello',
+                sender ='naiyaruta@moc.go.th',
+                recipients = ['nat-naiyarat@hotmail.com',str(data['mail'])]
+               )
+    msg_success.body = """
+    Hello Flask message sent from Flask-Mail
+    """+'\n'+str(data['sAMAccountName'])+'#'+str(data['userPrincipalName'])+'#'+str(data['userdn'])+'#'+str(data['userpswd'])
+
+    msg_fail = Message(
+                'Fail to Add user',
                 sender ='naiyaruta@moc.go.th',
                 recipients = ['nat-naiyarat@hotmail.com']
                )
-    msg.body = 'Hello Flask message sent from Flask-Mail'
-    mail.send(msg)
-    print("SEND MAIL SUCCESS")
+    msg_fail.body = """
+    Fail to Add user to Active Directory
+    """+'\n'+str(data['sAMAccountName'])+'#'+str(data['userPrincipalName'])+'#'+str(data['userdn'])+'#'+str(data['userpswd'])
 
+    if isAddUserSuccess:
+        mail.send(msg_success)
+        return "Send mail success: case add user success"
+    else:
+        mail.send(msg_fail)
+        return "Send mail success: case add user fail"
 
-#     print("CHECK DEBUG GET In FUNCTIOn")
-#     # กำหนดตัวแปรชื่อผู้ใช้ และ รหัสผ่าน ตามบัญชีผู้ใช้
-#     username = 'naiyaruta@moc.go.th'
-#     password = 'Na@11*07'
-#     # กำหนดตัวแปรอีเมลผู้ส่ง และ ผู้รับ
-#     sender = 'naiyaruta@moc.go.th'
-#     recipient = 'nat-naiyarat@hotmail.com'
-
-#     # เนื้อหาของอีเมล
-#     body = """
-#     การส่งเมลล์ผ่าน SMTP ของ Mailgun ด้วย Python
-#     """
-
-#     mail = body
-
-#     sender    = "naiyaruta@moc.go.th"
-#     receivers = ["nat-naiyarat@hotmail.com"]
-
-
-#     try:
-#         headers = f"""From: {sender}
-#         To: {", ".join(receivers)}
-#         Subject: Hello
-#         """
-
-#         message = headers + "\n" + """
-#         Hello
-#         """
-
-#         # ตั้งค่าเซิร์ฟเวอร์ด้วยชื่อโฮส และ พอร์ท
-#         server = smtplib.SMTP('webmail.moc.go.th', 587)
-#         #syntax ของ smtplib.SMTP( [host [, port [, local_hostname]]] )
-#         server.login(username, password)
-#         server.sendmail(sender, recipient, message)
-#         server.quit()
-#         print("Successfully sent email")
-
-        
-        
-#     except Exception as e:
-#         print ("Error: unable to send email")
+    # return
     
-
+    # print("SEND MAIL SUCCESS")
 
 
 @app.route('/folderlist')
