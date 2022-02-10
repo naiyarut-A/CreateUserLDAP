@@ -12,7 +12,7 @@ def generate_random_password():
 
 
     ## length of password from the user
-    alphabets_count = 3
+    alphabets_count = 2
     digits_count = 3
     special_characters_count = 2
 
@@ -38,7 +38,7 @@ def generate_random_password():
         password.append(random.choice(special_characters))
 
     ## shuffling the resultant password
-    # random.shuffle(password)
+    random.shuffle(password)
 
     ## converting the list to string
     return "".join(password)
