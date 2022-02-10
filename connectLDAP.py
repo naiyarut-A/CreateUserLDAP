@@ -13,7 +13,7 @@ app = Flask(__name__)
 app.config['MAIL_SERVER']='webmail.moc.go.th'
 app.config['MAIL_PORT'] = 465
 app.config['MAIL_USERNAME'] = 'naiyaruta@moc.go.th'
-app.config['MAIL_PASSWORD'] = 'Na@11*07'
+app.config['MAIL_PASSWORD'] = '******'
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 mail = Mail(app)
@@ -36,7 +36,7 @@ def addUser():
     # Setup base connection
     domain = 'OPS-AD-TEST.ictc.ops'
     loginun = 'ICTC\Administrator'
-    loginpw = 'vd8ntm9RQgDA'
+    loginpw = '*******'
     base_dn = 'OU=test,DC=ictc,DC=ops'
 
     # Set userdn
